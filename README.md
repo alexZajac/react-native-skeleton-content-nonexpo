@@ -1,10 +1,12 @@
 ## React Native Skeleton Content
 
+> This the not-expo dependant version of [this package](https://github.com/alexZajac/react-native-skeleton-content). 
+
 <img width="220px" align="right" src="https://raw.githubusercontent.com/alexZajac/react-native-skeleton-content/master/demos/main.gif" />
 
 React native Skeleton Content, a simple yet fully customizable component made to achieve loading animation in a Skeleton-style. Works in both iOS and Android.
 
-[![npm version](https://img.shields.io/npm/v/react-native-skeleton-content.svg?style=flat-square)](https://www.npmjs.com/package/react-native-skeleton-content)
+[![npm version](https://img.shields.io/npm/v/react-native-skeleton-content-nonexpo.svg?style=flat-square)](https://www.npmjs.com/package/react-native-skeleton-content)
 
 - [React Native Skeleton Content](#react-native-skeleton-content)
   - [Installation](#installation)
@@ -16,6 +18,7 @@ React native Skeleton Content, a simple yet fully customizable component made to
 ### Installation
 
 `npm install react-native-skeleton-content`
+> This package requires the `react-native-linear-gradient` package, make sure it's installed and working on your project.
 
 ### Usage
 

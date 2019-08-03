@@ -1,15 +1,29 @@
 {
   "name": "react-native-skeleton-content-nonexpo",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "A simple and fully customizable React Native component that implements a skeleton-like loader",
+  "main": "./src/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alexZajac/react-native-skeleton-content-nonexpo.git"
   },
   "keywords": [
     "node",
     "npm"
   ],
+  "bugs": {
+    "url": "https://github.com/alexZajac/react-native-skeleton-content-nonexpo/issues"
+  },
+  "homepage": "https://github.com/alexZajac/react-native-skeleton-content-nonexpo#readme",
+  "devDependencies": {
+    "metro-react-native-babel-preset": "^0.55.0"
+  },
+  "dependencies": {
+    "lodash": "^4.17.14"
+  },
   "author": "Alexandre Zajac",
   "license": "MIT"
 }
