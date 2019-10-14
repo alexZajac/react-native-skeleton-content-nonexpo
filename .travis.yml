@@ -14,4 +14,4 @@ install:
   - npm install
 script:
   - npm test -- -u
-  - npm run coveralls
+  - npm run coveralls -- -u

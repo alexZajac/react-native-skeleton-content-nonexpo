@@ -6,7 +6,7 @@
   "scripts": {
     "lint": "tslint --project tsconfig.json",
     "test": "jest --config jest.config.json --forceExit",
-    "coveralls": "jest --coverage"
+    "coveralls": "jest --config jest.config.json --coverage --forceExit"
   },
   "repository": {
     "type": "git",

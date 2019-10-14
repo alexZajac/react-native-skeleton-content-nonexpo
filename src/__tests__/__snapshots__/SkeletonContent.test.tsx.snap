@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`MyComponent should render correctly 1`] = `
+exports[`SkeletonComponent testing should render empty alone 1`] = `
 <View
   style={
     Object {
