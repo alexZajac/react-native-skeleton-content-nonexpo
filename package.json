@@ -6,7 +6,7 @@
   "scripts": {
     "lint": "tslint --project tsconfig.json",
     "test": "jest --config jest.config.json --forceExit",
-    "coveralls": "jest --config jest.config.json --coverage --forceExit"
+    "coveralls": "jest --config jest.config.json --forceExit --coverage && cat ./coverage/lcov.info"
   },
   "repository": {
     "type": "git",

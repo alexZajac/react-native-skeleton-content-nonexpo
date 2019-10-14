@@ -21,7 +21,7 @@ React native Skeleton Content, a simple yet fully customizable component made to
 
 ### Installation
 
-`npm install react-native-skeleton-content`
+`npm install react-native-skeleton-content-nonexpo`
 
 > This package requires the `react-native-linear-gradient` package, make sure it's installed and working on your project.
 
