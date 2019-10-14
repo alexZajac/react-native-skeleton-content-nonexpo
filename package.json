@@ -5,7 +5,7 @@
   "main": "./src/index.js",
   "scripts": {
     "lint": "tslint --project tsconfig.json",
-    "test": "jest --config jest.config.json --detectOpenHandles",
+    "test": "jest --config jest.config.json --forceExit",
     "coveralls": "jest --coverage"
   },
   "repository": {
@@ -29,6 +29,7 @@
     "coveralls": "^3.0.7",
     "enzyme": "^3.10.0",
     "enzyme-adapter-react-16": "^1.15.1",
+    "enzyme-to-json": "^3.4.2",
     "jest": "^24.9.0",
     "metro-react-native-babel-preset": "^0.55.0",
     "react": "^16.10.2",

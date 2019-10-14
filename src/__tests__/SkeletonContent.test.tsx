@@ -2,12 +2,9 @@ import { shallow } from "enzyme";
 import React from "react";
 import { SkeletonContent } from "../SkeletonContent";
 
-describe("SKC", () => {
-  const wrapper = shallow<SkeletonContent>(<SkeletonContent />);
-
-  describe("rendering", () => {
-    it("should render a <View />", () => {
-      expect(wrapper).toBeDefined();
-    });
+describe("SkeletonComponent testing", () => {
+  it("should render empty alone", () => {
+    const component = shallow<SkeletonContent>(<SkeletonContent />);
+    expect(component).toMatchSnapshot();
   });
 });

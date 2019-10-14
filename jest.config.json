@@ -4,6 +4,7 @@
     "^.+\\.js$": "<rootDir>/node_modules/react-native/jest/preprocessor.js",
     "\\.(ts|tsx)$": "ts-jest"
   },
+  "snapshotSerializers": ["enzyme-to-json/serializer"],
   "globals": {
     "ts-jest": {
       "tsConfig": "tsconfig.jest.json"
