@@ -1,6 +1,10 @@
 ## React Native Skeleton Content
 
-> This the not-expo dependant version of [this package](https://github.com/alexZajac/react-native-skeleton-content). 
+> This the not-expo dependant version of [this package](https://github.com/alexZajac/react-native-skeleton-content).
+
+[![Build Status](https://travis-ci.org/alexZajac/react-native-skeleton-content-nonexpo.svg?branch=master)](https://travis-ci.org/alexZajac/react-native-skeleton-content-nonexpo)
+
+[![Coverage Status](https://coveralls.io/repos/github/alexZajac/react-native-skeleton-content-nonexpo/badge.svg?branch=master)](https://coveralls.io/github/alexZajac/react-native-skeleton-content-nonexpo?branch=master)
 
 <img width="220px" align="right" src="https://raw.githubusercontent.com/alexZajac/react-native-skeleton-content/master/demos/main.gif" />
 
@@ -18,6 +22,7 @@ React native Skeleton Content, a simple yet fully customizable component made to
 ### Installation
 
 `npm install react-native-skeleton-content`
+
 > This package requires the `react-native-linear-gradient` package, make sure it's installed and working on your project.
 
 ### Usage
