@@ -21,6 +21,7 @@
   },
   "homepage": "https://github.com/alexZajac/react-native-skeleton-content-nonexpo#readme",
   "devDependencies": {
+    "@react-native-community/cli": "^2.9.0",
     "@types/enzyme": "^3.10.3",
     "@types/enzyme-adapter-react-16": "^1.0.5",
     "@types/jest": "^24.0.18",
@@ -31,6 +32,8 @@
     "enzyme-adapter-react-16": "^1.15.1",
     "enzyme-to-json": "^3.4.2",
     "jest": "^24.9.0",
+    "metro": "^0.56.0",
+    "metro-inspector-proxy": "^0.56.0",
     "metro-react-native-babel-preset": "^0.55.0",
     "react": "^16.10.2",
     "react-dom": "^16.10.2",
@@ -40,7 +43,8 @@
     "tslint-config-prettier": "^1.18.0",
     "tslint-eslint-rules": "^5.4.0",
     "tslint-react": "^4.1.0",
-    "typescript": "^3.6.4"
+    "typescript": "^3.6.4",
+    "ws": "^7.1.2"
   },
   "dependencies": {
     "lodash": "^4.17.14",
