@@ -85,7 +85,8 @@ export default class SkeletonContent extends React.Component<
         direction = { x: 1, y: 1 };
       } else if (this.props.animationDirection === "diagonalTopRight") {
         direction = { x: 0, y: 1 };
-      } else if (this.props.animationDirection === "diagonalDownLeft") {
+      } else {
+        //diagonalDownLeft
         direction = { x: 1, y: 0 };
       }
     }
@@ -109,7 +110,8 @@ export default class SkeletonContent extends React.Component<
         direction = { x: 0, y: 1 };
       } else if (this.props.animationDirection === "diagonalTopLeft") {
         direction = { x: 0, y: 0 };
-      } else if (this.props.animationDirection === "diagonalDownRight") {
+      } else {
+        //diagonalDownRight
         direction = { x: 1, y: 1 };
       }
     }
@@ -128,8 +130,7 @@ export default class SkeletonContent extends React.Component<
       nextProps.layout !== prevState.layout
     ) {
       return { isLoading: nextProps.isLoading, layout: nextProps.layout };
-    }
-    return null;
+    } else return null;
   }
 
   componentDidMount() {
@@ -217,7 +218,8 @@ export default class SkeletonContent extends React.Component<
       outputRange.push(+boneWidth, -boneWidth);
     } else if (this.props.animationDirection === "verticalDown") {
       outputRange.push(-boneHeight, +boneHeight);
-    } else if (this.props.animationDirection === "verticalTop") {
+    } else {
+      //verticalTop
       outputRange.push(+boneHeight, -boneHeight);
     }
     return outputRange;

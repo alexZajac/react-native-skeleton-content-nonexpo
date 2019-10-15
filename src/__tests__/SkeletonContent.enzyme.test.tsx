@@ -160,6 +160,31 @@ describe("SkeletonComponent testing", () => {
     component.unmount();
   });
 
+  it("should render loading children with no style", () => {
+    const props: ISkeletonContentProps = {
+      isLoading: true,
+      animationType: "pulse"
+    };
+    const TestComponent = ({
+      isLoading,
+      animationType
+    }: ISkeletonContentProps) => (
+      <SkeletonContent isLoading={isLoading} animationType={animationType}>
+        <Animated.View />
+        <Animated.View />
+      </SkeletonContent>
+    );
+
+    const component = mount(<TestComponent {...props} />);
+    expect(component.children().find(Animated.View)).toHaveLength(2);
+    expect(
+      component.containsAllMatchingElements([
+        <Animated.View />,
+        <Animated.View />
+      ])
+    );
+    component.unmount();
+  });
   it("should have the correct gradient properties", () => {
     let props: ISkeletonContentProps = {
       layout: [
