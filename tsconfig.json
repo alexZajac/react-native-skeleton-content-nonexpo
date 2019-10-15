@@ -2,6 +2,7 @@
   "compilerOptions": {
     "target": "es5",
     "module": "commonjs",
+    "skipLibCheck": true,
     "jsx": "react-native",
     "noEmit": true,
     "strict": true,

@@ -26,7 +26,7 @@ describe("SkeletonComponent testing", () => {
   });
 
   it("should render Linear Gradient alone", () => {
-    const props: { colors: Array<string> } = {
+    const props: { colors: string[] } = {
       colors: ["red", "blue"]
     };
     const component = shallow(<LinearGradient {...props} />);
@@ -152,9 +152,9 @@ describe("SkeletonComponent testing", () => {
     expect(component.children().find(Animated.View)).toHaveLength(3);
     expect(
       component.containsAllMatchingElements([
-        <View style={{ height: 100, width: 200 }} />,
-        <View style={{ height: 120, width: 20 }} />,
-        <View style={{ height: 80, width: 240 }} />
+        <View key="child" style={{ height: 100, width: 200 }} />,
+        <View key="child" style={{ height: 120, width: 20 }} />,
+        <View key="child" style={{ height: 80, width: 240 }} />
       ])
     );
     component.unmount();
@@ -179,14 +179,14 @@ describe("SkeletonComponent testing", () => {
     expect(component.children().find(Animated.View)).toHaveLength(2);
     expect(
       component.containsAllMatchingElements([
-        <Animated.View />,
-        <Animated.View />
+        <Animated.View key="child" />,
+        <Animated.View key="child" />
       ])
     );
     component.unmount();
   });
   it("should have the correct gradient properties", () => {
-    let props: ISkeletonContentProps = {
+    const props: ISkeletonContentProps = {
       layout: [
         {
           width: 240,
