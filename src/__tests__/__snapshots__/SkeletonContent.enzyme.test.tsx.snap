@@ -127,6 +127,30 @@ exports[`SkeletonComponent testing should have the correct layout when loading 1
 </SkeletonContent>
 `;
 
+exports[`SkeletonComponent testing should render Linear Gradient alone 1`] = `
+<BVLinearGradient
+  colors={
+    Array [
+      4294901760,
+      4278190335,
+    ]
+  }
+  endPoint={
+    Object {
+      "x": 0.5,
+      "y": 1,
+    }
+  }
+  locations={null}
+  startPoint={
+    Object {
+      "x": 0.5,
+      "y": 0,
+    }
+  }
+/>
+`;
+
 exports[`SkeletonComponent testing should render empty alone 1`] = `
 <View
   style={
@@ -137,6 +161,520 @@ exports[`SkeletonComponent testing should render empty alone 1`] = `
     }
   }
 />
+`;
+
+exports[`SkeletonComponent testing should render shiver bones for children 1`] = `
+<TestComponent
+  isLoading={true}
+>
+  <SkeletonContent
+    animationDirection="horizontalRight"
+    animationType="shiver"
+    boneColor="#E1E9EE"
+    containerStyle={
+      Object {
+        "alignItems": "center",
+        "flex": 1,
+        "justifyContent": "center",
+      }
+    }
+    duration={1200}
+    easing={[Function]}
+    highlightColor="#F2F8FC"
+    intensity={0.6}
+    isLoading={true}
+    layout={Array []}
+  >
+    <View
+      style={
+        Object {
+          "alignItems": "center",
+          "flex": 1,
+          "justifyContent": "center",
+        }
+      }
+    >
+      <View
+        style={
+          Object {
+            "alignItems": "center",
+            "flex": 1,
+            "justifyContent": "center",
+          }
+        }
+      >
+        <View
+          key=".0"
+          style={
+            Object {
+              "backgroundColor": "#E1E9EE",
+              "borderRadius": 4,
+              "height": 100,
+              "overflow": "hidden",
+              "width": 0,
+            }
+          }
+        >
+          <View
+            style={
+              Object {
+                "backgroundColor": "#E1E9EE",
+                "borderRadius": 4,
+                "height": 100,
+                "overflow": "hidden",
+                "width": 0,
+              }
+            }
+          >
+            <AnimatedComponent
+              style={
+                Array [
+                  Object {
+                    "height": "100%",
+                    "position": "absolute",
+                    "width": "100%",
+                  },
+                  Object {
+                    "transform": Array [
+                      Object {
+                        "translateX": -0,
+                      },
+                    ],
+                  },
+                ]
+              }
+            >
+              <View
+                style={
+                  Object {
+                    "height": "100%",
+                    "position": "absolute",
+                    "transform": Array [
+                      Object {
+                        "translateX": -0,
+                      },
+                    ],
+                    "width": "100%",
+                  }
+                }
+              >
+                <View
+                  style={
+                    Object {
+                      "height": "100%",
+                      "position": "absolute",
+                      "transform": Array [
+                        Object {
+                          "translateX": -0,
+                        },
+                      ],
+                      "width": "100%",
+                    }
+                  }
+                >
+                  <LinearGradient
+                    colors={
+                      Array [
+                        "#E1E9EE",
+                        "#F2F8FC",
+                        "#E1E9EE",
+                      ]
+                    }
+                    end={
+                      Object {
+                        "x": 1,
+                        "y": 0,
+                      }
+                    }
+                    start={
+                      Object {
+                        "x": 0,
+                        "y": 0,
+                      }
+                    }
+                    style={
+                      Object {
+                        "flex": 1,
+                      }
+                    }
+                  >
+                    <BVLinearGradient
+                      colors={
+                        Array [
+                          4292995566,
+                          4294113532,
+                          4292995566,
+                        ]
+                      }
+                      endPoint={
+                        Object {
+                          "x": 1,
+                          "y": 0,
+                        }
+                      }
+                      locations={null}
+                      startPoint={
+                        Object {
+                          "x": 0,
+                          "y": 0,
+                        }
+                      }
+                      style={
+                        Object {
+                          "flex": 1,
+                        }
+                      }
+                    >
+                      <BVLinearGradient
+                        colors={
+                          Array [
+                            4292995566,
+                            4294113532,
+                            4292995566,
+                          ]
+                        }
+                        endPoint={
+                          Object {
+                            "x": 1,
+                            "y": 0,
+                          }
+                        }
+                        locations={null}
+                        startPoint={
+                          Object {
+                            "x": 0,
+                            "y": 0,
+                          }
+                        }
+                        style={
+                          Object {
+                            "flex": 1,
+                          }
+                        }
+                      />
+                    </BVLinearGradient>
+                  </LinearGradient>
+                </View>
+              </View>
+            </AnimatedComponent>
+          </View>
+        </View>
+        <View
+          key=".1"
+          style={
+            Object {
+              "backgroundColor": "#E1E9EE",
+              "borderRadius": 4,
+              "height": 120,
+              "overflow": "hidden",
+              "width": 20,
+            }
+          }
+        >
+          <View
+            style={
+              Object {
+                "backgroundColor": "#E1E9EE",
+                "borderRadius": 4,
+                "height": 120,
+                "overflow": "hidden",
+                "width": 20,
+              }
+            }
+          >
+            <AnimatedComponent
+              style={
+                Array [
+                  Object {
+                    "height": "100%",
+                    "position": "absolute",
+                    "width": "100%",
+                  },
+                  Object {
+                    "transform": Array [
+                      Object {
+                        "translateX": -20,
+                      },
+                    ],
+                  },
+                ]
+              }
+            >
+              <View
+                style={
+                  Object {
+                    "height": "100%",
+                    "position": "absolute",
+                    "transform": Array [
+                      Object {
+                        "translateX": -20,
+                      },
+                    ],
+                    "width": "100%",
+                  }
+                }
+              >
+                <View
+                  style={
+                    Object {
+                      "height": "100%",
+                      "position": "absolute",
+                      "transform": Array [
+                        Object {
+                          "translateX": -20,
+                        },
+                      ],
+                      "width": "100%",
+                    }
+                  }
+                >
+                  <LinearGradient
+                    colors={
+                      Array [
+                        "#E1E9EE",
+                        "#F2F8FC",
+                        "#E1E9EE",
+                      ]
+                    }
+                    end={
+                      Object {
+                        "x": 1,
+                        "y": 0,
+                      }
+                    }
+                    start={
+                      Object {
+                        "x": 0,
+                        "y": 0,
+                      }
+                    }
+                    style={
+                      Object {
+                        "flex": 1,
+                      }
+                    }
+                  >
+                    <BVLinearGradient
+                      colors={
+                        Array [
+                          4292995566,
+                          4294113532,
+                          4292995566,
+                        ]
+                      }
+                      endPoint={
+                        Object {
+                          "x": 1,
+                          "y": 0,
+                        }
+                      }
+                      locations={null}
+                      startPoint={
+                        Object {
+                          "x": 0,
+                          "y": 0,
+                        }
+                      }
+                      style={
+                        Object {
+                          "flex": 1,
+                        }
+                      }
+                    >
+                      <BVLinearGradient
+                        colors={
+                          Array [
+                            4292995566,
+                            4294113532,
+                            4292995566,
+                          ]
+                        }
+                        endPoint={
+                          Object {
+                            "x": 1,
+                            "y": 0,
+                          }
+                        }
+                        locations={null}
+                        startPoint={
+                          Object {
+                            "x": 0,
+                            "y": 0,
+                          }
+                        }
+                        style={
+                          Object {
+                            "flex": 1,
+                          }
+                        }
+                      />
+                    </BVLinearGradient>
+                  </LinearGradient>
+                </View>
+              </View>
+            </AnimatedComponent>
+          </View>
+        </View>
+        <View
+          key=".2"
+          style={
+            Object {
+              "backgroundColor": "#E1E9EE",
+              "borderRadius": 4,
+              "height": 0,
+              "overflow": "hidden",
+              "width": 240,
+            }
+          }
+        >
+          <View
+            style={
+              Object {
+                "backgroundColor": "#E1E9EE",
+                "borderRadius": 4,
+                "height": 0,
+                "overflow": "hidden",
+                "width": 240,
+              }
+            }
+          >
+            <AnimatedComponent
+              style={
+                Array [
+                  Object {
+                    "height": "100%",
+                    "position": "absolute",
+                    "width": "100%",
+                  },
+                  Object {
+                    "transform": Array [
+                      Object {
+                        "translateX": -240,
+                      },
+                    ],
+                  },
+                ]
+              }
+            >
+              <View
+                style={
+                  Object {
+                    "height": "100%",
+                    "position": "absolute",
+                    "transform": Array [
+                      Object {
+                        "translateX": -240,
+                      },
+                    ],
+                    "width": "100%",
+                  }
+                }
+              >
+                <View
+                  style={
+                    Object {
+                      "height": "100%",
+                      "position": "absolute",
+                      "transform": Array [
+                        Object {
+                          "translateX": -240,
+                        },
+                      ],
+                      "width": "100%",
+                    }
+                  }
+                >
+                  <LinearGradient
+                    colors={
+                      Array [
+                        "#E1E9EE",
+                        "#F2F8FC",
+                        "#E1E9EE",
+                      ]
+                    }
+                    end={
+                      Object {
+                        "x": 1,
+                        "y": 0,
+                      }
+                    }
+                    start={
+                      Object {
+                        "x": 0,
+                        "y": 0,
+                      }
+                    }
+                    style={
+                      Object {
+                        "flex": 1,
+                      }
+                    }
+                  >
+                    <BVLinearGradient
+                      colors={
+                        Array [
+                          4292995566,
+                          4294113532,
+                          4292995566,
+                        ]
+                      }
+                      endPoint={
+                        Object {
+                          "x": 1,
+                          "y": 0,
+                        }
+                      }
+                      locations={null}
+                      startPoint={
+                        Object {
+                          "x": 0,
+                          "y": 0,
+                        }
+                      }
+                      style={
+                        Object {
+                          "flex": 1,
+                        }
+                      }
+                    >
+                      <BVLinearGradient
+                        colors={
+                          Array [
+                            4292995566,
+                            4294113532,
+                            4292995566,
+                          ]
+                        }
+                        endPoint={
+                          Object {
+                            "x": 1,
+                            "y": 0,
+                          }
+                        }
+                        locations={null}
+                        startPoint={
+                          Object {
+                            "x": 0,
+                            "y": 0,
+                          }
+                        }
+                        style={
+                          Object {
+                            "flex": 1,
+                          }
+                        }
+                      />
+                    </BVLinearGradient>
+                  </LinearGradient>
+                </View>
+              </View>
+            </AnimatedComponent>
+          </View>
+        </View>
+      </View>
+    </View>
+  </SkeletonContent>
+</TestComponent>
 `;
 
 exports[`SkeletonComponent testing should render the correct bones for children 1`] = `

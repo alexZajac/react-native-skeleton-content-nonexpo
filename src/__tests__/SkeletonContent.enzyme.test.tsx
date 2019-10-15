@@ -25,6 +25,14 @@ describe("SkeletonComponent testing", () => {
     expect(component).toMatchSnapshot();
   });
 
+  it("should render Linear Gradient alone", () => {
+    const props: { colors: Array<string> } = {
+      colors: ["red", "blue"]
+    };
+    const component = shallow(<LinearGradient {...props} />);
+    expect(component).toMatchSnapshot();
+  });
+
   it("should have default Props", () => {
     const component = mount(<SkeletonContent />);
     expect(component.props().containerStyle).toEqual({
@@ -89,7 +97,24 @@ describe("SkeletonComponent testing", () => {
     component.unmount();
   });
 
-  it("should switch to correct children when not loading", () => {
+  it("should render shiver bones for children", () => {
+    const props: ISkeletonContentProps = {
+      isLoading: true
+    };
+    const TestComponent = ({ isLoading }: ISkeletonContentProps) => (
+      <SkeletonContent isLoading={isLoading}>
+        <Animated.View style={{ height: 100 }} />
+        <Animated.View style={{ height: 120, width: 20 }} />
+        <Animated.View style={{ width: 240 }} />
+      </SkeletonContent>
+    );
+    const component = mount(<TestComponent {...props} />);
+    expect(component.children().find(Animated.View)).toHaveLength(3);
+    expect(component).toMatchSnapshot();
+    component.unmount();
+  });
+
+  it("should switch to correct children after finishing loading", () => {
     const props: ISkeletonContentProps = {
       layout: [
         {
@@ -103,7 +128,7 @@ describe("SkeletonComponent testing", () => {
         }
       ],
       isLoading: true,
-      animationType: "none"
+      animationType: "pulse"
     };
     const TestComponent = ({
       isLoading,
@@ -117,7 +142,7 @@ describe("SkeletonComponent testing", () => {
       >
         <Animated.View style={{ height: 100, width: 200 }} />
         <Animated.View style={{ height: 120, width: 20 }} />
-        <Animated.View style={{ height: 80, width: 240 }} />
+        <Animated.View />
       </SkeletonContent>
     );
 
@@ -136,24 +161,35 @@ describe("SkeletonComponent testing", () => {
   });
 
   it("should have the correct gradient properties", () => {
-    const props: ISkeletonContentProps = {
+    let props: ISkeletonContentProps = {
+      layout: [
+        {
+          width: 240,
+          height: 100,
+          marginBottom: 10
+        },
+        {
+          width: 180,
+          height: 40
+        }
+      ],
       isLoading: true,
       animationDirection: "diagonalDownLeft"
     };
     const TestComponent = ({
       isLoading,
+      layout,
       animationDirection
     }: ISkeletonContentProps) => (
       <SkeletonContent
         isLoading={isLoading}
+        layout={layout}
         animationDirection={animationDirection}
       >
         <Animated.View style={{ height: 100, width: 200 }} />
-        <Animated.View style={{ height: 120, width: 20 }} />
-        <Animated.View style={{ height: 80, width: 240 }} />
       </SkeletonContent>
     );
-    const component = mount(<TestComponent {...props} />);
+    let component = mount(<TestComponent {...props} />);
     expect(component.find(LinearGradient)).toBeDefined();
     expect(
       component
@@ -173,6 +209,112 @@ describe("SkeletonComponent testing", () => {
       x: 0,
       y: 1
     });
+
+    props.animationDirection = "diagonalTopLeft";
+    component = mount(<TestComponent {...props} />);
+    expect(
+      component
+        .find(LinearGradient)
+        .at(0)
+        .props().start
+    ).toEqual({
+      x: 1,
+      y: 1
+    });
+    expect(
+      component
+        .find(LinearGradient)
+        .at(0)
+        .props().end
+    ).toEqual({
+      x: 0,
+      y: 0
+    });
+
+    props.animationDirection = "diagonalTopRight";
+    component = mount(<TestComponent {...props} />);
+    expect(
+      component
+        .find(LinearGradient)
+        .at(0)
+        .props().start
+    ).toEqual({
+      x: 0,
+      y: 1
+    });
+    expect(
+      component
+        .find(LinearGradient)
+        .at(0)
+        .props().end
+    ).toEqual({
+      x: 1,
+      y: 0
+    });
+
+    props.animationDirection = "diagonalDownRight";
+    component = mount(<TestComponent {...props} />);
+    expect(
+      component
+        .find(LinearGradient)
+        .at(0)
+        .props().start
+    ).toEqual({
+      x: 0,
+      y: 0
+    });
+    expect(
+      component
+        .find(LinearGradient)
+        .at(0)
+        .props().end
+    ).toEqual({
+      x: 1,
+      y: 1
+    });
+
+    props.animationDirection = "verticalTop";
+    component = mount(<TestComponent {...props} />);
+    expect(
+      component
+        .find(LinearGradient)
+        .at(0)
+        .props().start
+    ).toEqual({
+      x: 0,
+      y: 0
+    });
+    expect(
+      component
+        .find(LinearGradient)
+        .at(0)
+        .props().end
+    ).toEqual({
+      x: 0,
+      y: 1
+    });
+
+    props.animationDirection = "verticalDown";
+    component = mount(<TestComponent {...props} />);
+    expect(
+      component
+        .find(LinearGradient)
+        .at(0)
+        .props().start
+    ).toEqual({
+      x: 0,
+      y: 0
+    });
+    expect(
+      component
+        .find(LinearGradient)
+        .at(0)
+        .props().end
+    ).toEqual({
+      x: 0,
+      y: 1
+    });
+
     expect(
       component
         .find(LinearGradient)
@@ -183,6 +325,7 @@ describe("SkeletonComponent testing", () => {
       DEFAULT_HIGHLIGHT_COLOR,
       DEFAULT_BONE_COLOR
     ]);
+
     component.unmount();
   });
 });
