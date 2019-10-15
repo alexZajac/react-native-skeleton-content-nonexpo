@@ -1,6 +1,6 @@
 import * as React from "react";
 import { Animated, StyleSheet, View } from "react-native";
-import { LinearGradient } from "react-native-linear-gradient";
+import LinearGradient from "react-native-linear-gradient";
 import {
   DEFAULT_ANIMATION_TYPE,
   DEFAULT_ANIMATION_DIRECTION,
@@ -40,7 +40,7 @@ const getInitialState = ({
   layout
 }: ISkeletonContentProps): IState => ({
   isLoading,
-  layout
+  layout: layout!
 });
 
 const getDefaultProps = (): ISkeletonContentProps => ({
@@ -56,7 +56,7 @@ const getDefaultProps = (): ISkeletonContentProps => ({
   intensity: DEFAULT_INTENSITY
 });
 
-export class SkeletonContent extends React.Component<
+export default class SkeletonContent extends React.Component<
   ISkeletonContentProps,
   IState
 > {
@@ -67,7 +67,7 @@ export class SkeletonContent extends React.Component<
   animationShiver = new Animated.Value(0);
   interpolatedBackgroundColor = this.animationPulse.interpolate({
     inputRange: [0, 1],
-    outputRange: [this.props.boneColor, this.props.highlightColor]
+    outputRange: [this.props.boneColor!, this.props.highlightColor!]
   });
 
   getGradientStartDirection = (): IDirection => {
@@ -142,14 +142,14 @@ export class SkeletonContent extends React.Component<
         Animated.sequence([
           Animated.timing(this.animationPulse, {
             toValue: 1,
-            duration: this.props.duration / 2,
+            duration: this.props.duration! / 2,
             easing: this.props.easing,
             delay: this.props.duration
           }),
           Animated.timing(this.animationPulse, {
             toValue: 0,
             easing: this.props.easing,
-            duration: this.props.duration / 2
+            duration: this.props.duration! / 2
           })
         ])
       ).start();
@@ -239,9 +239,9 @@ export class SkeletonContent extends React.Component<
       >
         <LinearGradient
           colors={[
-            this.props.boneColor,
-            this.props.highlightColor,
-            this.props.boneColor
+            this.props.boneColor!,
+            this.props.highlightColor!,
+            this.props.boneColor!
           ]}
           start={this.gradientStart}
           end={this.gradientEnd}

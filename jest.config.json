@@ -11,6 +11,7 @@
     }
   },
   "setupFiles": ["./src/setupTests.js"],
+  "setupFilesAfterEnv": ["<rootDir>setup-test-env.js"],
   "moduleFileExtensions": ["ts", "tsx", "js"],
   "testRegex": "(/__tests__/.*|\\.(test|spec))\\.(ts|tsx|js)$",
   "coveragePathIgnorePatterns": [

@@ -6,7 +6,7 @@
   "scripts": {
     "lint": "tslint --project tsconfig.json",
     "test": "jest --config jest.config.json --forceExit",
-    "coveralls": "jest --config jest.config.json --forceExit --coverage && cat ./coverage/lcov.info"
+    "coveralls": "jest --config jest.config.json --forceExit --coverage && cat ./coverage/lcov.info | coveralls"
   },
   "repository": {
     "type": "git",
@@ -32,6 +32,8 @@
     "enzyme-adapter-react-16": "^1.15.1",
     "enzyme-to-json": "^3.4.2",
     "jest": "^24.9.0",
+    "jest-enzyme": "^7.1.1",
+    "jsdom": "^15.2.0",
     "metro": "^0.56.0",
     "metro-inspector-proxy": "^0.56.0",
     "metro-react-native-babel-preset": "^0.55.0",

@@ -15,10 +15,10 @@ export type CustomViewStyle = any;
 
 export interface ISkeletonContentProps {
   isLoading: boolean;
-  layout: CustomViewStyle[];
-  duration: number;
-  containerStyle: ViewStyle;
-  animationType: "none" | "shiver" | "pulse";
+  layout?: CustomViewStyle[];
+  duration?: number;
+  containerStyle?: ViewStyle;
+  animationType?: "none" | "shiver" | "pulse";
   animationDirection?:
     | "horizontalLeft"
     | "horizontalRight"
@@ -28,10 +28,10 @@ export interface ISkeletonContentProps {
     | "diagonalDownRight"
     | "diagonalTopLeft"
     | "diagonalTopRight";
-  boneColor: string;
-  intensity: number;
-  highlightColor: string;
-  easing: EasingFunction;
+  boneColor?: string;
+  intensity?: number;
+  highlightColor?: string;
+  easing?: EasingFunction;
 }
 
 export interface IState {
