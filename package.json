@@ -2,8 +2,8 @@
   "name": "react-native-skeleton-content-nonexpo",
   "version": "1.0.3",
   "description": "A simple and fully customizable React Native component that implements a skeleton-like loader",
-  "main": "./lib/index.js",
-  "types": "./lib/index.d.ts",
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
   "files": [
     "lib/**/*"
   ],
@@ -58,7 +58,7 @@
     "tslint-config-prettier": "^1.18.0",
     "tslint-eslint-rules": "^5.4.0",
     "tslint-react": "^4.1.0",
-    "typescript": "^3.6.4",
+    "typescript": "^3.7.2",
     "ws": "^7.1.2"
   },
   "dependencies": {
