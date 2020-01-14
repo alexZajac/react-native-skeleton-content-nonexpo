@@ -26,7 +26,7 @@ React native Skeleton Content, a simple yet fully customizable component made to
 1.  Import react-native-skeleton-content:
 
 ```javascript
-import SkeletonContent from "react-native-skeleton-content";
+import SkeletonContent from "react-native-skeleton-content-nonexpo";
 ```
 
 2.  Once you create the SkeletonContent, you have two options:
