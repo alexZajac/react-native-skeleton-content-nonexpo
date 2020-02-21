@@ -234,13 +234,13 @@ export default class SkeletonContent extends React.Component<
     <View key={layoutStyle.key || key} style={layoutStyle}>
         {children}
     </View>
-  );
+);
 
-  getStaticBone = (layoutStyle: CustomViewStyle, key: number): JSX.Element => (
+  getStaticBone = (layoutStyle: CustomViewStyle, key: string | number): JSX.Element => (
     <Animated.View key={layoutStyle.key || key} style={this.getBoneStyles(layoutStyle)} />
   );
 
-  getShiverBone = (layoutStyle: CustomViewStyle, key: number): JSX.Element => (
+  getShiverBone = (layoutStyle: CustomViewStyle, key: string | number): JSX.Element => (
     <View key={layoutStyle.key || key} style={this.getBoneStyles(layoutStyle)}>
       <Animated.View
         style={[
@@ -276,16 +276,16 @@ export default class SkeletonContent extends React.Component<
           return this.getBoneContainer(
             layout[i],
             this.getBones(layout[i].children, [], containerPrefix),
-            `${prefix}_${i}`
-          );
+            containerPrefix
+          )
         } else {
           if (
             this.props.animationType === "pulse" ||
             this.props.animationType === "none"
           ) {
-            return this.getStaticBone(layout[i], i);
+            return this.getStaticBone(layout[i], prefix ? `${prefix}_${i}` : i);
           } else {
-            return this.getShiverBone(layout[i], i);
+            return this.getShiverBone(layout[i], prefix ? `${prefix}_${i}` : i);
           }
         }
       });
