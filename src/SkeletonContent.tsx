@@ -234,7 +234,7 @@ export default class SkeletonContent extends React.Component<
     <View key={layoutStyle.key || key} style={layoutStyle}>
         {children}
     </View>
-);
+  );
 
   getStaticBone = (layoutStyle: CustomViewStyle, key: number): JSX.Element => (
     <Animated.View key={layoutStyle.key || key} style={this.getBoneStyles(layoutStyle)} />
@@ -272,11 +272,12 @@ export default class SkeletonContent extends React.Component<
       }
       return iterator.map((_, i) => {
         if (layout[i].children && layout[i].children.length > 0) {
+          const containerPrefix = layout[i].key || `bone_container_${i}`;
           return this.getBoneContainer(
             layout[i],
-            this.getBones(layout[i].children, [], `bone_container_${i}`),
+            this.getBones(layout[i].children, [], containerPrefix),
             `${prefix}_${i}`
-          )
+          );
         } else {
           if (
             this.props.animationType === "pulse" ||
