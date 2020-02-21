@@ -273,11 +273,7 @@ export default class SkeletonContent extends React.Component<
       return iterator.map((_, i) => {
         if (layout[i].children && layout[i].children.length > 0) {
           const containerPrefix = layout[i].key || `bone_container_${i}`;
-          return this.getBoneContainer(
-            layout[i],
-            this.getBones(layout[i].children, [], containerPrefix),
-            containerPrefix
-          )
+          return this.getBoneContainer(layout[i], this.getBones(layout[i].children, [], containerPrefix), containerPrefix);
         } else {
           if (
             this.props.animationType === "pulse" ||
