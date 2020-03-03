@@ -50,6 +50,7 @@ exports[`SkeletonComponent testing should have the correct layout when loading 1
       }
     >
       <AnimatedComponent
+        key="0"
         style={
           Object {
             "backgroundColor": "#E1E9EE",
@@ -88,6 +89,7 @@ exports[`SkeletonComponent testing should have the correct layout when loading 1
         </View>
       </AnimatedComponent>
       <AnimatedComponent
+        key="1"
         style={
           Object {
             "backgroundColor": "#E1E9EE",
@@ -204,7 +206,7 @@ exports[`SkeletonComponent testing should render shiver bones for children 1`] =
         }
       >
         <View
-          key=".0"
+          key="0/.0"
           style={
             Object {
               "backgroundColor": "#E1E9EE",
@@ -360,7 +362,7 @@ exports[`SkeletonComponent testing should render shiver bones for children 1`] =
           </View>
         </View>
         <View
-          key=".1"
+          key="1/.1"
           style={
             Object {
               "backgroundColor": "#E1E9EE",
@@ -516,7 +518,7 @@ exports[`SkeletonComponent testing should render shiver bones for children 1`] =
           </View>
         </View>
         <View
-          key=".2"
+          key="2/.2"
           style={
             Object {
               "backgroundColor": "#E1E9EE",
@@ -719,7 +721,7 @@ exports[`SkeletonComponent testing should render the correct bones for children 
         }
       >
         <AnimatedComponent
-          key=".0"
+          key="0/.0"
           style={
             Object {
               "backgroundColor": "#E1E9EE",
@@ -755,7 +757,7 @@ exports[`SkeletonComponent testing should render the correct bones for children 
           </View>
         </AnimatedComponent>
         <AnimatedComponent
-          key=".1"
+          key="1/.1"
           style={
             Object {
               "backgroundColor": "#E1E9EE",
@@ -791,7 +793,7 @@ exports[`SkeletonComponent testing should render the correct bones for children 
           </View>
         </AnimatedComponent>
         <AnimatedComponent
-          key=".2"
+          key="2/.2"
           style={
             Object {
               "backgroundColor": "#E1E9EE",
