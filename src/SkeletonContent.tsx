@@ -135,8 +135,11 @@ export default class SkeletonContent extends React.Component<
     }
   }
 
-  componentDidMount() {
-    this.playAnimation();
+  componentDidUpdate() {
+    if (this.state.isLoading) {
+      this.playAnimation();
+    }
+    else {}
   }
 
   playAnimation = () => {
@@ -227,11 +230,17 @@ export default class SkeletonContent extends React.Component<
     return outputRange;
   };
 
-  getStaticBone = (layoutStyle: CustomViewStyle, key: number): JSX.Element => (
+  getBoneContainer = (layoutStyle: CustomViewStyle, children: JSX.Element[], key: string) => (
+    <View key={layoutStyle.key || key} style={layoutStyle}>
+        {children}
+    </View>
+);
+
+  getStaticBone = (layoutStyle: CustomViewStyle, key: string | number): JSX.Element => (
     <Animated.View key={layoutStyle.key || key} style={this.getBoneStyles(layoutStyle)} />
   );
 
-  getShiverBone = (layoutStyle: CustomViewStyle, key: number): JSX.Element => (
+  getShiverBone = (layoutStyle: CustomViewStyle, key: string | number): JSX.Element => (
     <View key={layoutStyle.key || key} style={this.getBoneStyles(layoutStyle)}>
       <Animated.View
         style={[
@@ -255,20 +264,25 @@ export default class SkeletonContent extends React.Component<
     </View>
   );
 
-  getBones = (layout: CustomViewStyle[], children: any): JSX.Element[] => {
+  getBones = (layout: CustomViewStyle[], children: any, prefix = ''): JSX.Element[] => {
     if (layout.length > 0) {
       const iterator: number[] = new Array(layout.length);
       for (let i = 0; i < layout.length; i++) {
         iterator[i] = 0;
       }
       return iterator.map((_, i) => {
-        if (
-          this.props.animationType === "pulse" ||
-          this.props.animationType === "none"
-        ) {
-          return this.getStaticBone(layout[i], i);
+        if (layout[i].children && layout[i].children.length > 0) {
+          const containerPrefix = layout[i].key || `bone_container_${i}`;
+          return this.getBoneContainer(layout[i], this.getBones(layout[i].children, [], containerPrefix), containerPrefix);
         } else {
-          return this.getShiverBone(layout[i], i);
+          if (
+            this.props.animationType === "pulse" ||
+            this.props.animationType === "none"
+          ) {
+            return this.getStaticBone(layout[i], prefix ? `${prefix}_${i}` : i);
+          } else {
+            return this.getShiverBone(layout[i], prefix ? `${prefix}_${i}` : i);
+          }
         }
       });
     } else {
