@@ -7,12 +7,13 @@
   "snapshotSerializers": ["enzyme-to-json/serializer"],
   "globals": {
     "ts-jest": {
-      "tsConfig": "tsconfig.jest.json"
+      "tsConfigFile": "tsconfig.jest.json"
     }
   },
   "setupFiles": ["./src/setupTests.js"],
   "setupFilesAfterEnv": ["<rootDir>setup-test-env.js"],
   "moduleFileExtensions": ["ts", "tsx", "js"],
+  "modulePaths": ["<rootDir>"],
   "testRegex": "(/__tests__/.*|\\.(test|spec))\\.(ts|tsx|js)$",
   "coveragePathIgnorePatterns": [
     "/node_modules/",
