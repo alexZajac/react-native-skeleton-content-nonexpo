@@ -135,7 +135,7 @@ export default class SkeletonContent extends React.Component<
     }
   }
 
-  componentDidUpdate() {
+  componentDidMount() {
     if (this.state.isLoading) {
       this.playAnimation();
     }
