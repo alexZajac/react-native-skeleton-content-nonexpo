@@ -150,13 +150,13 @@ export default class SkeletonContent extends React.Component<
             duration: this.props.duration! / 2,
             easing: this.props.easing,
             delay: this.props.duration,
-            useNativeDriver: true,
+            useNativeDriver: false,
           }),
           Animated.timing(this.animationPulse, {
             toValue: 0,
             easing: this.props.easing,
             duration: this.props.duration! / 2,
-            useNativeDriver: true,
+            useNativeDriver: false,
           })
         ])
       ).start();
