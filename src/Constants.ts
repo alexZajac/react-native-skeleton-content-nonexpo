@@ -37,6 +37,7 @@ export interface ISkeletonContentProps {
 export interface IState {
   isLoading: boolean;
   layout: CustomViewStyle[];
+  containerLayout: { width: number; height: number };
 }
 
 export interface IDirection {
