@@ -15,13 +15,12 @@ import {
   DEFAULT_EASING,
   DEFAULT_DURATION,
   DEFAULT_HIGHLIGHT_COLOR,
-  DEFAULT_INTENSITY,
   DEFAULT_LOADING
 } from "../Constants";
 
 describe("SkeletonComponent testing", () => {
   it("should render empty alone", () => {
-    const component = shallow(<SkeletonContent />);
+    const component = shallow(<SkeletonContent isLoading={true} />);
     expect(component).toMatchSnapshot();
   });
 
@@ -34,7 +33,7 @@ describe("SkeletonComponent testing", () => {
   });
 
   it("should have default Props", () => {
-    const component = mount(<SkeletonContent />);
+    const component = mount(<SkeletonContent isLoading={true} />);
     expect(component.props().containerStyle).toEqual({
       alignItems: "center",
       flex: 1,
@@ -49,7 +48,6 @@ describe("SkeletonComponent testing", () => {
     expect(component.props().boneColor).toEqual(DEFAULT_BONE_COLOR);
     expect(component.props().duration).toEqual(DEFAULT_DURATION);
     expect(component.props().highlightColor).toEqual(DEFAULT_HIGHLIGHT_COLOR);
-    expect(component.props().intensity).toEqual(DEFAULT_INTENSITY);
     expect(component.props().isLoading).toEqual(DEFAULT_LOADING);
     component.unmount();
   });
@@ -70,7 +68,7 @@ describe("SkeletonComponent testing", () => {
       isLoading: true,
       animationType: "none"
     };
-    const component = mount<SkeletonContent>(<SkeletonContent {...props} />);
+    const component = mount(<SkeletonContent {...props} />);
     expect(component.children().find(Animated.View)).toHaveLength(2);
     expect(component).toMatchSnapshot();
     component.unmount();
@@ -85,12 +83,12 @@ describe("SkeletonComponent testing", () => {
       isLoading,
       animationType
     }: ISkeletonContentProps) => (
-      <SkeletonContent isLoading={isLoading} animationType={animationType}>
-        <View style={{ height: 100, width: 200 }} />
-        <View style={{ height: 120, width: 20 }} />
-        <View style={{ height: 80, width: 240 }} />
-      </SkeletonContent>
-    );
+        <SkeletonContent isLoading={isLoading} animationType={animationType}>
+          <View style={{ height: 100, width: 200 }} />
+          <View style={{ height: 120, width: 20 }} />
+          <View style={{ height: 80, width: 240 }} />
+        </SkeletonContent>
+      );
     const component = mount(<TestComponent {...props} />);
     expect(component.children().find(Animated.View)).toHaveLength(3);
     expect(component).toMatchSnapshot();
@@ -135,16 +133,16 @@ describe("SkeletonComponent testing", () => {
       layout,
       animationType
     }: ISkeletonContentProps) => (
-      <SkeletonContent
-        layout={layout}
-        isLoading={isLoading}
-        animationType={animationType}
-      >
-        <Animated.View style={{ height: 100, width: 200 }} />
-        <Animated.View style={{ height: 120, width: 20 }} />
-        <Animated.View />
-      </SkeletonContent>
-    );
+        <SkeletonContent
+          layout={layout}
+          isLoading={isLoading}
+          animationType={animationType}
+        >
+          <Animated.View style={{ height: 100, width: 200 }} />
+          <Animated.View style={{ height: 120, width: 20 }} />
+          <Animated.View />
+        </SkeletonContent>
+      );
 
     const component = mount(<TestComponent {...props} />);
     expect(component.children().find(Animated.View)).toHaveLength(2);
@@ -169,11 +167,11 @@ describe("SkeletonComponent testing", () => {
       isLoading,
       animationType
     }: ISkeletonContentProps) => (
-      <SkeletonContent isLoading={isLoading} animationType={animationType}>
-        <Animated.View />
-        <Animated.View />
-      </SkeletonContent>
-    );
+        <SkeletonContent isLoading={isLoading} animationType={animationType}>
+          <Animated.View />
+          <Animated.View />
+        </SkeletonContent>
+      );
 
     const component = mount(<TestComponent {...props} />);
     expect(component.children().find(Animated.View)).toHaveLength(2);
@@ -206,14 +204,14 @@ describe("SkeletonComponent testing", () => {
       layout,
       animationDirection
     }: ISkeletonContentProps) => (
-      <SkeletonContent
-        isLoading={isLoading}
-        layout={layout}
-        animationDirection={animationDirection}
-      >
-        <Animated.View style={{ height: 100, width: 200 }} />
-      </SkeletonContent>
-    );
+        <SkeletonContent
+          isLoading={isLoading}
+          layout={layout}
+          animationDirection={animationDirection}
+        >
+          <Animated.View style={{ height: 100, width: 200 }} />
+        </SkeletonContent>
+      );
     let component = mount(<TestComponent {...props} />);
     expect(component.find(LinearGradient)).toBeDefined();
     expect(
