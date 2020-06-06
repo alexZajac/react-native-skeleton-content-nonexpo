@@ -75,7 +75,7 @@ const SkeletonContent: React.FunctionComponent<ISkeletonContentProps> = ({
         cond(eq(shiverValue, 1),
           [
             set(animationValue, loop({
-              duration: duration,
+              duration,
               easing
             }))
           ],

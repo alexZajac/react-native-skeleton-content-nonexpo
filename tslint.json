@@ -8,6 +8,7 @@
   "jsRules": {},
   "rules": {
     "interface-name": false,
+    "no-shadowed-variable": false,
     "jsx-no-lambda": false,
     "object-literal-sort-keys": false,
     "member-access": false,
