@@ -40,7 +40,8 @@ const getInitialState = ({
   layout
 }: ISkeletonContentProps): IState => ({
   isLoading,
-  layout: layout!
+  layout: layout!,
+  containerLayout: { width: 0, height: 0 }
 });
 
 const getDefaultProps = (): ISkeletonContentProps => ({
@@ -156,13 +157,13 @@ export default class SkeletonContent extends React.Component<
             duration: this.props.duration! / 2,
             easing: this.props.easing,
             delay: this.props.duration,
-            useNativeDriver: true,
+            useNativeDriver: false,
           }),
           Animated.timing(this.animationPulse, {
             toValue: 0,
             easing: this.props.easing,
             duration: this.props.duration! / 2,
-            useNativeDriver: true,
+            useNativeDriver: false,
           })
         ])
       ).start();
@@ -214,8 +215,14 @@ export default class SkeletonContent extends React.Component<
 
   getPositionRange = (boneLayout: CustomViewStyle): number[] => {
     const outputRange: number[] = [];
-    const boneWidth = boneLayout.width || 0;
-    const boneHeight = boneLayout.height || 0;
+    const boneWidth =
+      typeof boneLayout.width === "string"
+        ? this.state.containerLayout.width
+        : boneLayout.width || 0;
+    const boneHeight =
+      typeof boneLayout.width === "string"
+        ? this.state.containerLayout.height
+        : boneLayout.height || 0;
 
     if (
       this.props.animationDirection === "horizontalRight" ||
@@ -249,7 +256,7 @@ export default class SkeletonContent extends React.Component<
   );
 
   getShiverBone = (layoutStyle: CustomViewStyle, key: string | number): JSX.Element => (
-    <View key={layoutStyle.key || key} style={this.getBoneStyles(layoutStyle)}>
+    <View key={layoutStyle.key || key} style={[ this.getBoneStyles(layoutStyle), { overflow: 'hidden' } ]}>
       <Animated.View
         style={[
           styles.absoluteGradient,
@@ -320,7 +327,12 @@ export default class SkeletonContent extends React.Component<
     const bones = this.getBones(layout, children);
 
     return (
-      <View style={this.props.containerStyle}>
+      <View
+        style={this.props.containerStyle}
+        onLayout={event =>
+          this.setState({ containerLayout: event.nativeEvent.layout })
+        }
+      >
         {this.renderLayout(isLoading, bones, children)}
       </View>
     );
