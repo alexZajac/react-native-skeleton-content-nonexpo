@@ -65,7 +65,9 @@
   },
   "dependencies": {
     "lodash": "^4.17.14",
-    "react-native-linear-gradient": "^2.5.6"
+    "react-native-linear-gradient": "^2.5.6",
+    "react-native-reanimated": "^1.9.0",
+    "react-native-redash": "^14.1.1"
   },
   "author": "Alexandre Zajac",
   "license": "MIT"
