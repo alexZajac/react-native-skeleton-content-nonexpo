@@ -6,6 +6,11 @@
 
 React native Skeleton Content, a simple yet fully customizable component made to achieve loading animation in a Skeleton-style. Works in both iOS and Android.
 
+### New Features 
+- The package has been rewritten to Hooks and is using the declarative [react-native-reanimated](https://github.com/software-mansion/react-native-reanimated) package for animations
+- It now supports nested layouts for children bones, see an example on [this snack](https://snack.expo.io/@alexandrezajac/skeleton-content-demo)
+- It finally supports percentages dimensions for bones, for any type of animation! 
+
 [![Build Status](https://travis-ci.org/alexZajac/react-native-skeleton-content-nonexpo.svg?branch=master)](https://travis-ci.org/alexZajac/react-native-skeleton-content-nonexpo)   [![Coverage Status](https://coveralls.io/repos/github/alexZajac/react-native-skeleton-content-nonexpo/badge.svg?branch=master)](https://coveralls.io/github/alexZajac/react-native-skeleton-content-nonexpo?branch=master)  [![npm version](https://img.shields.io/npm/v/react-native-skeleton-content-nonexpo.svg?style=flat-square)](https://www.npmjs.com/package/react-native-skeleton-content)
 
 - [React Native Skeleton Content](#react-native-skeleton-content)
