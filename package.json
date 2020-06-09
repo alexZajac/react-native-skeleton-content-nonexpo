@@ -16,8 +16,30 @@
     "preversion": "npm run lint",
     "version": "npm run format && git add -A src",
     "postversion": "git push && git push --tags",
-    "test": "jest --config jest.config.json --silent --forceExit",
-    "coveralls": "jest --config jest.config.json --silent --forceExit --coverage && cat ./coverage/lcov.info | coveralls"
+    "test": "jest --no-watchman",
+    "coveralls": "jest --coverage && cat ./coverage/lcov.info | coveralls"
+  },
+  "jest": {
+    "preset": "react-native",
+    "setupFiles": [
+      "./setup-test.js"
+    ],
+    "moduleFileExtensions": [
+      "js",
+      "jsx",
+      "json",
+      "ts",
+      "tsx"
+    ],
+    "transform": {
+      "^.+\\.(js|jsx|ts|tsx)$": "babel-jest"
+    },
+    "testMatch": [
+      "**/*.test.ts?(x)"
+    ],
+    "coveragePathIgnorePatterns": [
+      "./src/__tests__/"
+    ]
   },
   "repository": {
     "type": "git",
@@ -64,10 +86,15 @@
     "ws": "^7.1.2"
   },
   "dependencies": {
+    "@babel/preset-typescript": "^7.10.1",
+    "@types/react-test-renderer": "^16.9.2",
+    "babel-preset-expo": "^8.2.1",
     "lodash": "^4.17.14",
+    "react-native-gesture-handler": "^1.6.1",
     "react-native-linear-gradient": "^2.5.6",
     "react-native-reanimated": "^1.9.0",
-    "react-native-redash": "^14.1.1"
+    "react-native-redash": "^14.1.1",
+    "react-test-renderer": "^16.13.1"
   },
   "author": "Alexandre Zajac",
   "license": "MIT"
