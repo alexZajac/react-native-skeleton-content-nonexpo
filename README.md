@@ -164,5 +164,5 @@ render () {
 
 ### Playground
 
-You can test out the features and different props easily on [**Snack**](https://snack.expo.io/@alexandrezajac/skeleton).
+You can test out the features and different props easily on [**Snack**](https://snack.expo.io/@alexandrezajac/skeleton-content-demo).
 Don't hesitate to take contact if anything is unclear !
