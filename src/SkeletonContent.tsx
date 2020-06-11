@@ -76,14 +76,16 @@ const SkeletonContent: React.FunctionComponent<ISkeletonContentProps> = ({
           [
             set(animationValue, loop({
               duration,
-              easing
+              easing,
+              useNativeDriver: true
             }))
           ],
           [
             set(animationValue, loop({
               duration: duration! / 2,
               easing,
-              boomerang: true
+              boomerang: true,
+              useNativeDriver: true
             }))
           ])
       ])
