@@ -2,22 +2,22 @@ import * as React from 'react';
 import { StyleSheet, View } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 import Animated, { interpolate } from 'react-native-reanimated';
-import { interpolateColor, loop } from 'react-native-redash';
+import { interpolateColor, loop, useValue } from 'react-native-redash';
 import {
-  DEFAULT_ANIMATION_TYPE,
+  CustomViewStyle,
   DEFAULT_ANIMATION_DIRECTION,
+  DEFAULT_ANIMATION_TYPE,
   DEFAULT_BONE_COLOR,
   DEFAULT_BORDER_RADIUS,
-  DEFAULT_EASING,
   DEFAULT_DURATION,
+  DEFAULT_EASING,
   DEFAULT_HIGHLIGHT_COLOR,
   DEFAULT_LOADING,
-  ISkeletonContentProps,
   IDirection,
-  CustomViewStyle
+  ISkeletonContentProps
 } from './Constants';
 
-const { Value, useCode, set, cond, eq } = Animated;
+const { useCode, set, cond, eq } = Animated;
 const { useState, useCallback } = React;
 
 const styles = StyleSheet.create({
@@ -59,13 +59,15 @@ const SkeletonContent: React.FunctionComponent<ISkeletonContentProps> = ({
   easing,
   children
 }) => {
-  const animationValue = new Value(0);
-  const loadingValue = new Value(isLoading ? 1 : 0);
-  const shiverValue = new Value(animationType === 'shiver' ? 1 : 0);
+  const animationValue = useValue(0);
+  const loadingValue = useValue(isLoading ? 1 : 0);
+  const shiverValue = useValue(animationType === 'shiver' ? 1 : 0);
+
   const interpolatedBackgroundColor = interpolateColor(animationValue, {
     inputRange: [0, 1],
     outputRange: [boneColor!, highlightColor!]
   });
+
   const [componentSize, onLayout] = useLayout();
 
   useCode(
@@ -94,7 +96,7 @@ const SkeletonContent: React.FunctionComponent<ISkeletonContentProps> = ({
           ]
         )
       ]),
-    [loadingValue, shiverValue]
+    [loadingValue, shiverValue, animationValue]
   );
 
   const getGradientStartDirection = (): IDirection => {
