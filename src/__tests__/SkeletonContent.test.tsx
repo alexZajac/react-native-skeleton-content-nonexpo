@@ -29,20 +29,6 @@ describe('SkeletonComponent test suite', () => {
     expect(tree).toMatchSnapshot();
   });
 
-  it('should have default props', () => {
-    const component = create(<SkeletonContent isLoading />).root;
-    expect(component.props.easing).toEqual(DEFAULT_EASING);
-    expect(component.props.layout).toEqual([]);
-    expect(component.props.animationDirection).toEqual(
-      DEFAULT_ANIMATION_DIRECTION
-    );
-    expect(component.props.animationType).toEqual(DEFAULT_ANIMATION_TYPE);
-    expect(component.props.boneColor).toEqual(DEFAULT_BONE_COLOR);
-    expect(component.props.duration).toEqual(DEFAULT_DURATION);
-    expect(component.props.highlightColor).toEqual(DEFAULT_HIGHLIGHT_COLOR);
-    expect(component.props.isLoading).toEqual(DEFAULT_LOADING);
-  });
-
   it('should have the correct layout when loading', () => {
     const layout = [
       {
@@ -74,14 +60,10 @@ describe('SkeletonComponent test suite', () => {
       justifyContent: 'center'
     });
     // default props that are not set
-    expect(bones[1].props.style).toEqual({
-      ...staticStyles,
-      ...layout[0]
-    });
-    expect(bones[2].props.style).toEqual({
-      overflow: 'hidden',
-      ...layout[1]
-    });
+    expect(bones[1].props.style).toEqual([{ ...layout[0], ...staticStyles }]);
+    expect(bones[2].props.style).toEqual([
+      { overflow: 'hidden', ...layout[1] }
+    ]);
     expect(instance.toJSON()).toMatchSnapshot();
   });
 
@@ -129,21 +111,27 @@ describe('SkeletonComponent test suite', () => {
     component = instance.root;
     bones = component.findAllByType(Animated.View);
     // cannot test interpolated background color
-    expect(bones[1].props.style).toEqual({
-      ...w1,
-      borderRadius: DEFAULT_BORDER_RADIUS,
-      backgroundColor: { ' __value': NaN }
-    });
-    expect(bones[2].props.style).toEqual({
-      ...w2,
-      borderRadius: DEFAULT_BORDER_RADIUS,
-      backgroundColor: { ' __value': NaN }
-    });
-    expect(bones[3].props.style).toEqual({
-      ...w3,
-      borderRadius: DEFAULT_BORDER_RADIUS,
-      backgroundColor: { ' __value': NaN }
-    });
+    expect(bones[1].props.style).toEqual([
+      {
+        ...w1,
+        borderRadius: DEFAULT_BORDER_RADIUS
+      },
+      { backgroundColor: { ' __value': NaN } }
+    ]);
+    expect(bones[2].props.style).toEqual([
+      {
+        ...w2,
+        borderRadius: DEFAULT_BORDER_RADIUS
+      },
+      { backgroundColor: { ' __value': NaN } }
+    ]);
+    expect(bones[3].props.style).toEqual([
+      {
+        ...w3,
+        borderRadius: DEFAULT_BORDER_RADIUS
+      },
+      { backgroundColor: { ' __value': NaN } }
+    ]);
     expect(instance.toJSON()).toMatchSnapshot();
   });
 
