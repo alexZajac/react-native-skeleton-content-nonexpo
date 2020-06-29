@@ -7,13 +7,8 @@ import { create } from 'react-test-renderer';
 import SkeletonContent from '../SkeletonContent';
 import {
   ISkeletonContentProps,
-  DEFAULT_ANIMATION_TYPE,
-  DEFAULT_ANIMATION_DIRECTION,
   DEFAULT_BONE_COLOR,
-  DEFAULT_EASING,
-  DEFAULT_DURATION,
   DEFAULT_HIGHLIGHT_COLOR,
-  DEFAULT_LOADING,
   DEFAULT_BORDER_RADIUS
 } from '../Constants';
 

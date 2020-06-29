@@ -28,6 +28,7 @@ export interface ISkeletonContentProps {
   boneColor?: string;
   highlightColor?: string;
   easing?: Animated.EasingFunction;
+  children?: any;
 }
 
 export interface IDirection {
