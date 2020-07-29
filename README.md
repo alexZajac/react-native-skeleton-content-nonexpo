@@ -65,8 +65,8 @@ export default function Placehoder () {
   const [loading, setLoading] = useState(true);
   return (
     <SkeletonContent
-       containerStyle={{flex: 1, width: 300}}
-        isLoading={isLoading}>
+       	containerStyle={{flex: 1, width: 300}}
+        isLoading={isLoading}
         {...otherProps}
     />
   )
@@ -104,8 +104,8 @@ export default function Placehoder () {
     <SkeletonContent
         containerStyle={{flex: 1, width: 300}}
         animationDirection="horizontalLeft"
-        isLoading={true}>
-        ...
+        isLoading={true}
+        // ...
     />
   )
 }
@@ -125,8 +125,8 @@ export default function Placehoder () {
         boneColor="#121212"
         highlightColor="#333333"
         animationType="pulse"
-        isLoading={true}>
-        ...
+        isLoading={true}
+        // ...
     />
   )
 }
@@ -145,14 +145,14 @@ export default function Placehoder () {
         containerStyle={{flex: 1, width: 300}}
         animationDirection="horizontalLeft"
         layout={[
-        // long line
-        { width: 220, height: 20, marginBottom: 6 },
-        // short line
-        { width: 180, height: 20, marginBottom: 6 },
-        ...
+			// long line
+			{ width: 220, height: 20, marginBottom: 6 },
+			// short line
+			{ width: 180, height: 20, marginBottom: 6 },
+			// ...
         ]}
-        isLoading={true}>
-        ...
+        isLoading={true}
+       	// ...
     />
   )
 }
