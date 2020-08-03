@@ -68,11 +68,11 @@
     "prettier": "^1.18.2",
     "react": "^16.10.2",
     "react-native": "^0.61.2",
+    "react-native-gesture-handler": "^1.6.1",
     "react-test-renderer": "^16.13.1",
     "typescript": "^3.7.2"
   },
   "dependencies": {
-    "react-native-gesture-handler": "^1.6.1",
     "react-native-linear-gradient": "^2.5.6",
     "react-native-reanimated": "^1.9.0",
     "react-native-redash": "^14.1.1"
