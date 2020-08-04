@@ -94,6 +94,15 @@ const SkeletonContent: React.FunctionComponent<ISkeletonContentProps> = ({
     [loadingValue, shiverValue, animationValue]
   );
 
+  const getBoneWidth = (boneLayout: ICustomViewStyle): number =>
+    (typeof boneLayout.width === 'string'
+      ? componentSize.width
+      : boneLayout.width) || 0;
+  const getBoneHeight = (boneLayout: ICustomViewStyle): number =>
+    (typeof boneLayout.height === 'string'
+      ? componentSize.height
+      : boneLayout.height) || 0;
+
   const getGradientEndDirection = (
     boneLayout: ICustomViewStyle
   ): IDirection => {
@@ -152,7 +161,6 @@ const SkeletonContent: React.FunctionComponent<ISkeletonContentProps> = ({
   };
 
   const getGradientSize = (boneLayout: ICustomViewStyle): ICustomViewStyle => {
-    const { backgroundColor, borderRadius } = boneLayout;
     const boneWidth = getBoneWidth(boneLayout);
     const boneHeight = getBoneHeight(boneLayout);
     const gradientStyle: ICustomViewStyle = {};
@@ -185,15 +193,6 @@ const SkeletonContent: React.FunctionComponent<ISkeletonContentProps> = ({
     if (animationType === 'none') pulseStyles.pop();
     return pulseStyles;
   };
-
-  const getBoneWidth = (boneLayout: ICustomViewStyle): number =>
-    (typeof boneLayout.width === 'string'
-      ? componentSize.width
-      : boneLayout.width) || 0;
-  const getBoneHeight = (boneLayout: ICustomViewStyle): number =>
-    (typeof boneLayout.height === 'string'
-      ? componentSize.height
-      : boneLayout.height) || 0;
 
   const getPositionRange = (boneLayout: ICustomViewStyle): number[] => {
     const outputRange: number[] = [];
@@ -263,8 +262,8 @@ const SkeletonContent: React.FunctionComponent<ISkeletonContentProps> = ({
         rotateAngle += additionalRotate;
       const sinComponent = Math.sin(diagonalAngle) * distanceFactor;
       const cosComponent = Math.cos(diagonalAngle) * distanceFactor;
-      let xOutputRange = [0, 0],
-        yOutputRange = [0, 0];
+      let xOutputRange = [0, 0];
+      let yOutputRange = [0, 0];
       if (
         animationDirection === 'diagonalDownRight' ||
         animationDirection === 'diagonalTopLeft'
