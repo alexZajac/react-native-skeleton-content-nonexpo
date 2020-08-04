@@ -4,7 +4,7 @@ import LinearGradient from 'react-native-linear-gradient';
 import Animated, { interpolate } from 'react-native-reanimated';
 import { interpolateColor, loop, useValue } from 'react-native-redash';
 import {
-  CustomViewStyle,
+  ICustomViewStyle,
   DEFAULT_ANIMATION_DIRECTION,
   DEFAULT_ANIMATION_TYPE,
   DEFAULT_BONE_COLOR,
@@ -48,25 +48,20 @@ const useLayout = () => {
 };
 
 const SkeletonContent: React.FunctionComponent<ISkeletonContentProps> = ({
-  isLoading,
-  layout,
-  containerStyle,
-  boneColor,
-  highlightColor,
-  duration,
-  animationDirection,
-  animationType,
-  easing,
+  containerStyle = styles.container,
+  easing = DEFAULT_EASING,
+  duration = DEFAULT_DURATION,
+  layout = [],
+  animationType = DEFAULT_ANIMATION_TYPE,
+  animationDirection = DEFAULT_ANIMATION_DIRECTION,
+  isLoading = DEFAULT_LOADING,
+  boneColor = DEFAULT_BONE_COLOR,
+  highlightColor = DEFAULT_HIGHLIGHT_COLOR,
   children
 }) => {
   const animationValue = useValue(0);
   const loadingValue = useValue(isLoading ? 1 : 0);
   const shiverValue = useValue(animationType === 'shiver' ? 1 : 0);
-
-  const interpolatedBackgroundColor = interpolateColor(animationValue, {
-    inputRange: [0, 1],
-    outputRange: [boneColor!, highlightColor!]
-  });
 
   const [componentSize, onLayout] = useLayout();
 
@@ -145,26 +140,37 @@ const SkeletonContent: React.FunctionComponent<ISkeletonContentProps> = ({
     return direction;
   };
 
-  const gradientStart = getGradientStartDirection();
-  const gradientEnd = getGradientEndDirection();
-
-  const getBoneStyles = (boneLayout: CustomViewStyle): CustomViewStyle => {
-    const boneStyle: CustomViewStyle = {
+  const getBoneStyles = (boneLayout: ICustomViewStyle): ICustomViewStyle => {
+    const boneStyle: ICustomViewStyle = {
       width: boneLayout.width || 0,
       height: boneLayout.height || 0,
       borderRadius: boneLayout.borderRadius || DEFAULT_BORDER_RADIUS,
       ...boneLayout
     };
-    if (animationType === 'pulse') {
-      boneStyle.backgroundColor = interpolatedBackgroundColor;
-    } else {
+    if (animationType !== 'pulse') {
       boneStyle.overflow = 'hidden';
       boneStyle.backgroundColor = boneLayout.backgroundColor || boneColor;
     }
     return boneStyle;
   };
 
-  const getPositionRange = (boneLayout: CustomViewStyle): number[] => {
+  const getStaticBoneStyles = (
+    boneLayout: ICustomViewStyle
+  ): (ICustomViewStyle | { backgroundColor: any })[] => {
+    const pulseStyles = [
+      getBoneStyles(boneLayout),
+      {
+        backgroundColor: interpolateColor(animationValue, {
+          inputRange: [0, 1],
+          outputRange: [boneColor!, highlightColor!]
+        })
+      }
+    ];
+    if (animationType === 'none') pulseStyles.pop();
+    return pulseStyles;
+  };
+
+  const getPositionRange = (boneLayout: ICustomViewStyle): number[] => {
     const outputRange: number[] = [];
     // use layout dimensions for percentages (string type)
     const boneWidth =
@@ -196,7 +202,7 @@ const SkeletonContent: React.FunctionComponent<ISkeletonContentProps> = ({
     return outputRange;
   };
 
-  const getGradientTransform = (boneLayout: CustomViewStyle): object => {
+  const getGradientTransform = (boneLayout: ICustomViewStyle): object => {
     let transform = {};
     const interpolatedPosition = interpolate(animationValue, {
       inputRange: [0, 1],
@@ -214,9 +220,9 @@ const SkeletonContent: React.FunctionComponent<ISkeletonContentProps> = ({
   };
 
   const getBoneContainer = (
-    layoutStyle: CustomViewStyle,
+    layoutStyle: ICustomViewStyle,
     bonesChildren: JSX.Element[],
-    key: string
+    key: number | string
   ) => (
     <View key={layoutStyle.key || key} style={layoutStyle}>
       {bonesChildren}
@@ -224,17 +230,17 @@ const SkeletonContent: React.FunctionComponent<ISkeletonContentProps> = ({
   );
 
   const getStaticBone = (
-    layoutStyle: CustomViewStyle,
+    layoutStyle: ICustomViewStyle,
     key: number | string
   ): JSX.Element => (
     <Animated.View
       key={layoutStyle.key || key}
-      style={getBoneStyles(layoutStyle)}
+      style={getStaticBoneStyles(layoutStyle)}
     />
   );
 
   const getShiverBone = (
-    layoutStyle: CustomViewStyle,
+    layoutStyle: ICustomViewStyle,
     key: number | string
   ): JSX.Element => {
     const animatedStyle: any = {
@@ -245,8 +251,8 @@ const SkeletonContent: React.FunctionComponent<ISkeletonContentProps> = ({
         <Animated.View style={[styles.absoluteGradient, animatedStyle]}>
           <LinearGradient
             colors={[boneColor!, highlightColor!, boneColor!]}
-            start={gradientStart}
-            end={gradientEnd}
+            start={getGradientStartDirection()}
+            end={getGradientEndDirection()}
             style={styles.gradientChild}
           />
         </Animated.View>
@@ -255,15 +261,15 @@ const SkeletonContent: React.FunctionComponent<ISkeletonContentProps> = ({
   };
 
   const getBones = (
-    bonesLayout: CustomViewStyle[],
+    bonesLayout: ICustomViewStyle[] | undefined,
     childrenItems: any,
-    prefix = ''
+    prefix: string | number = ''
   ): JSX.Element[] => {
-    if (bonesLayout.length > 0) {
+    if (bonesLayout && bonesLayout.length > 0) {
       const iterator: number[] = new Array(bonesLayout.length).fill(0);
       return iterator.map((_, i) => {
         // has a nested layout
-        if (bonesLayout[i].children && bonesLayout[i].children.length > 0) {
+        if (bonesLayout[i].children && bonesLayout[i].children!.length > 0) {
           const containerPrefix = bonesLayout[i].key || `bone_container_${i}`;
           const { children: bonesChildren, ...layoutStyle } = bonesLayout[i];
           return getBoneContainer(
@@ -277,7 +283,7 @@ const SkeletonContent: React.FunctionComponent<ISkeletonContentProps> = ({
         }
         return getShiverBone(bonesLayout[i], prefix ? `${prefix}_${i}` : i);
       });
-      // no mayout, matching children's layout
+      // no layout, matching children's layout
     }
     return React.Children.map(childrenItems, (child, i) => {
       const styling = child.props.style || {};
@@ -295,16 +301,4 @@ const SkeletonContent: React.FunctionComponent<ISkeletonContentProps> = ({
   );
 };
 
-SkeletonContent.defaultProps = {
-  containerStyle: styles.container,
-  easing: DEFAULT_EASING,
-  duration: DEFAULT_DURATION,
-  layout: [],
-  animationType: DEFAULT_ANIMATION_TYPE,
-  animationDirection: DEFAULT_ANIMATION_DIRECTION,
-  isLoading: DEFAULT_LOADING,
-  boneColor: DEFAULT_BONE_COLOR,
-  highlightColor: DEFAULT_HIGHLIGHT_COLOR
-};
-
-export default SkeletonContent;
+export default React.memo(SkeletonContent);
