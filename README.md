@@ -100,11 +100,12 @@ export default function Placeholder () {
 
 ## PureSkeletonContent
 If you are really concerned about performance, or you don't want your components mounting being runned while
-`isLoading` **is false**, then you may need to consider using `PureSkeletonContent`.
+`isLoading` is **false**, then you may need to consider using `PureSkeletonContent`.
 
-#### Point to note 
+### Point to note 
 All props passed to PureSkeletonContent should be a **constant** prop, **memoize** it if it will change sometime.
 Otherwise, you should consider using the good old `SkeletonContent`.
+> This point does not apply to **componentProps** as it is shallow checked to know if we should re-render the Skeleton or not.
 
 
 ```typescript jsx
@@ -125,7 +126,7 @@ const SomeComponent: FunctionComponent<{name: string}> = ({ name }) => {
       isLoading={isLoading}
       layout={GreetingsSC}
       component={Greetings} 
-      componentProps={{ name }} 
+      componentProps={{ name }} // will be shallow checked, you don't need to memoize this
       containerStyle={styles.container} // notice we using styles from styleSheet
     />
   )
