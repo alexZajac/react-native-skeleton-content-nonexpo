@@ -206,7 +206,7 @@ exports[`SkeletonComponent test suite should render the correct bones for childr
         },
         Object {
           "backgroundColor": AnimatedValue {
-            " __value": NaN,
+            " __value": 4278190080,
           },
         },
       ]
@@ -222,7 +222,7 @@ exports[`SkeletonComponent test suite should render the correct bones for childr
         },
         Object {
           "backgroundColor": AnimatedValue {
-            " __value": NaN,
+            " __value": 4278190080,
           },
         },
       ]
@@ -238,7 +238,7 @@ exports[`SkeletonComponent test suite should render the correct bones for childr
         },
         Object {
           "backgroundColor": AnimatedValue {
-            " __value": NaN,
+            " __value": 4278190080,
           },
         },
       ]
