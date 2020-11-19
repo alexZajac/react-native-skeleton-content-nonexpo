@@ -1,4 +1,5 @@
 import { StyleProp, ViewStyle } from 'react-native';
+import { ComponentType } from 'react';
 import Animated, { Easing } from 'react-native-reanimated';
 
 type _animationType = 'none' | 'shiver' | 'pulse' | undefined;
@@ -30,6 +31,15 @@ export interface ISkeletonContentProps {
   easing?: Animated.EasingFunction;
   children?: any;
 }
+
+export interface IPureSkeletonContentPropsFields<T = any> {
+  component: ComponentType<T>;
+  componentProps?: T;
+}
+
+export interface IPureSkeletonContentProps<T>
+  extends IPureSkeletonContentPropsFields<T>,
+    Omit<ISkeletonContentProps, 'children'> {}
 
 export interface IDirection {
   x: number;

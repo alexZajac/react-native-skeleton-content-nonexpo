@@ -14,7 +14,8 @@ import {
   DEFAULT_HIGHLIGHT_COLOR,
   DEFAULT_LOADING,
   ISkeletonContentProps,
-  IDirection
+  IDirection,
+  IPureSkeletonContentPropsFields
 } from './Constants';
 
 const { useCode, set, cond, eq } = Animated;
@@ -47,7 +48,8 @@ const useLayout = () => {
   return [size, onLayout];
 };
 
-const SkeletonContent: React.FunctionComponent<ISkeletonContentProps> = ({
+const SkeletonContent: React.FunctionComponent<ISkeletonContentProps &
+  Partial<IPureSkeletonContentPropsFields>> = ({
   containerStyle = styles.container,
   easing = DEFAULT_EASING,
   duration = DEFAULT_DURATION,
@@ -57,7 +59,9 @@ const SkeletonContent: React.FunctionComponent<ISkeletonContentProps> = ({
   isLoading = DEFAULT_LOADING,
   boneColor = DEFAULT_BONE_COLOR,
   highlightColor = DEFAULT_HIGHLIGHT_COLOR,
-  children
+  children,
+  component: Component,
+  componentProps
 }) => {
   const animationValue = useValue(0);
   const loadingValue = useValue(isLoading ? 1 : 0);
@@ -383,11 +387,14 @@ const SkeletonContent: React.FunctionComponent<ISkeletonContentProps> = ({
     });
   };
 
+  const getComponent = () =>
+    Component ? <Component {...componentProps} /> : children;
+
   return (
     <View style={containerStyle} onLayout={onLayout}>
-      {isLoading ? getBones(layout!, children) : children}
+      {isLoading ? getBones(layout!, children) : getComponent()}
     </View>
   );
 };
 
-export default React.memo(SkeletonContent);
+export default SkeletonContent;
