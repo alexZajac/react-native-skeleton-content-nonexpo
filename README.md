@@ -111,12 +111,12 @@ Otherwise, you should consider using the good old `SkeletonContent`.
 ```typescript jsx
 import { FunctionComponent } from 'react';
 import { Text, TextStyle, StyleSheet } from 'react-native';
-import { PureSkeletonContent } from 'react-native-skeleton-content-nonexpo'; 
+import { PureSkeletonContent, ICustomViewStyle } from 'react-native-skeleton-content-nonexpo'; 
 
 const Greetings: FunctionComponent<{ name: string }> = ({ name }) => 
   (<Text>Hello {name}</Text>);
 
-const GreetingsSC = [{ height: 40, width: 200, paddingVertical: 2 }];
+const GreetingsSC: ICustomViewStyle[] = [{ height: 40, width: 200, paddingVertical: 2 }];
 
 const SomeComponent: FunctionComponent<{name: string}> = ({ name }) => {
   const [loading, setLoading] = useState(true);
