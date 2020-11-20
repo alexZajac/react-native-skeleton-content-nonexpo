@@ -4,7 +4,6 @@ import LinearGradient from 'react-native-linear-gradient';
 import Animated, { interpolate } from 'react-native-reanimated';
 import { interpolateColor, loop, useValue } from 'react-native-redash';
 import {
-  ICustomViewStyle,
   DEFAULT_ANIMATION_DIRECTION,
   DEFAULT_ANIMATION_TYPE,
   DEFAULT_BONE_COLOR,
@@ -12,11 +11,14 @@ import {
   DEFAULT_EASING,
   DEFAULT_DURATION,
   DEFAULT_HIGHLIGHT_COLOR,
-  DEFAULT_LOADING,
-  ISkeletonContentProps,
-  IDirection,
-  IPureSkeletonContentPropsFields
+  DEFAULT_LOADING
 } from './Constants';
+import {
+  ISkeletonContentProps,
+  IPureSkeletonContentPropsFields,
+  ICustomViewStyle,
+  IDirection
+} from './types';
 
 const { useCode, set, cond, eq } = Animated;
 const { useState, useCallback } = React;

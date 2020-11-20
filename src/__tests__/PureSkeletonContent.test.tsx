@@ -5,11 +5,8 @@ import Animated from 'react-native-reanimated';
 import LinearGradient from 'react-native-linear-gradient';
 import { create } from 'react-test-renderer';
 import PureSkeletonContent from '../PureSkeletonContent';
-import {
-  ISkeletonContentProps,
-  DEFAULT_BONE_COLOR,
-  DEFAULT_BORDER_RADIUS
-} from '../Constants';
+import { DEFAULT_BONE_COLOR, DEFAULT_BORDER_RADIUS } from '../Constants';
+import { ISkeletonContentProps } from '../types';
 
 const staticStyles = {
   borderRadius: DEFAULT_BORDER_RADIUS,

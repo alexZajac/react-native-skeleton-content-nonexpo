@@ -6,11 +6,11 @@ import LinearGradient from 'react-native-linear-gradient';
 import { create } from 'react-test-renderer';
 import SkeletonContent from '../SkeletonContent';
 import {
-  ISkeletonContentProps,
   DEFAULT_BONE_COLOR,
   DEFAULT_HIGHLIGHT_COLOR,
   DEFAULT_BORDER_RADIUS
 } from '../Constants';
+import { ISkeletonContentProps } from '../types';
 
 const staticStyles = {
   borderRadius: DEFAULT_BORDER_RADIUS,

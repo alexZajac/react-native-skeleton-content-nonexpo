@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { IPureSkeletonContentProps } from './Constants';
+import { IPureSkeletonContentProps } from './types';
 import SkeletonContent from './SkeletonContent';
 
 const didChange = <T extends object>(
