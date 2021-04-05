@@ -54,11 +54,11 @@
   },
   "homepage": "https://github.com/alexZajac/react-native-skeleton-content-nonexpo#readme",
   "dependencies": {
-    "react-native-redash": "^14.0.0"
+    "react-native-redash": "^14.2.4"
   },
   "peerDependencies": {
     "react-native-linear-gradient": "^2.5.1",
-    "react-native-reanimated": "^1.5.0"
+    "react-native-reanimated": "^2.0.0"
   },
   "devDependencies": {
     "@babel/preset-typescript": "^7.10.1",
@@ -77,7 +77,7 @@
     "react-native": "^0.61.2",
     "react-native-gesture-handler": "^1.7.0",
     "react-native-linear-gradient": "^2.5.6",
-    "react-native-reanimated": "^1.9.0",
+    "react-native-reanimated": "^2.0.0",
     "react-test-renderer": "^16.13.1",
     "typescript": "^3.7.2"
   },

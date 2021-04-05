@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { StyleSheet, View } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
-import Animated, { interpolate } from 'react-native-reanimated';
+import Animated, { interpolateNode } from 'react-native-reanimated';
 import { interpolateColor, loop, useValue } from 'react-native-redash';
 import {
   ICustomViewStyle,
@@ -222,7 +222,7 @@ const SkeletonContent: React.FunctionComponent<ISkeletonContentProps> = ({
       animationDirection === 'horizontalLeft' ||
       animationDirection === 'horizontalRight'
     ) {
-      const interpolatedPosition = interpolate(animationValue, {
+      const interpolatedPosition = interpolateNode(animationValue, {
         inputRange: [0, 1],
         outputRange: getPositionRange(boneLayout)
       });
@@ -290,11 +290,11 @@ const SkeletonContent: React.FunctionComponent<ISkeletonContentProps> = ({
           yOutputRange.reverse();
         }
       }
-      let translateX = interpolate(animationValue, {
+      let translateX = interpolateNode(animationValue, {
         inputRange: [0, 1],
         outputRange: xOutputRange
       });
-      let translateY = interpolate(animationValue, {
+      let translateY = interpolateNode(animationValue, {
         inputRange: [0, 1],
         outputRange: yOutputRange
       });
