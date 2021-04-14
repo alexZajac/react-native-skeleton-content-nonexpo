@@ -98,6 +98,47 @@ export default function Placeholder () {
 
 **Note**: The Easing type function is the one provided by [react-native-reanimated](https://github.com/software-mansion/react-native-reanimated), so if you want to change the default you will have to install it as a dependency.
 
+## PureSkeletonContent
+If you are really concerned about performance, or you don't want your components mounting being runned while
+`isLoading` is **false**, then you may need to consider using `PureSkeletonContent`.
+
+### Point to note 
+All props passed to PureSkeletonContent should be a **constant** prop, **memoize** it if it will change sometime.
+Otherwise, you should consider using the good old `SkeletonContent`.
+> This point does not apply to **componentProps** as it is shallow checked to know if we should re-render the Skeleton or not.
+
+
+```typescript jsx
+import { FunctionComponent } from 'react';
+import { Text, TextStyle, StyleSheet } from 'react-native';
+import { PureSkeletonContent, ICustomViewStyle } from 'react-native-skeleton-content-nonexpo'; 
+
+const Greetings: FunctionComponent<{ name: string }> = ({ name }) => 
+  (<Text>Hello {name}</Text>);
+
+const GreetingsSC: ICustomViewStyle[] = [{ height: 40, width: 200, paddingVertical: 2 }];
+
+const SomeComponent: FunctionComponent<{name: string}> = ({ name }) => {
+  const [loading, setLoading] = useState(true);
+
+  return (
+    <PureSkeletonContent 
+      isLoading={isLoading}
+      layout={GreetingsSC}
+      component={Greetings} 
+      componentProps={{ name }} // will be shallow checked, you don't need to memoize this
+      containerStyle={styles.container} // notice we using styles from styleSheet
+    />
+  )
+}
+
+const styles = StyleSheet({
+  container: {
+    flex: 1, width: 300
+  }
+})
+```
+
 ### Examples
 
 See the playground section to experiment :

@@ -1,3 +1,9 @@
-import SkeletonContent from './SkeletonContent';
+import { FunctionComponent } from 'react';
 
-export default SkeletonContent;
+import PureSkeletonContent from './PureSkeletonContent';
+import SkeletonContent from './SkeletonContent';
+import { ISkeletonContentProps } from './types';
+
+export * from './types';
+export { PureSkeletonContent };
+export default SkeletonContent as FunctionComponent<ISkeletonContentProps>;
