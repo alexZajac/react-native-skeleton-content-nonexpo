@@ -1,6 +1,7 @@
 import { FunctionComponent } from 'react';
-import SkeletonContent from './SkeletonContent';
+
 import PureSkeletonContent from './PureSkeletonContent';
+import SkeletonContent from './SkeletonContent';
 import { ISkeletonContentProps } from './types';
 
 export * from './types';

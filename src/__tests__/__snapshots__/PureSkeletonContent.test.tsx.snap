@@ -5,9 +5,7 @@ exports[`PureSkeletonContent test suite should have correct props and layout bet
   onLayout={[Function]}
   style={
     Object {
-      "alignItems": "center",
       "flex": 1,
-      "justifyContent": "center",
     }
   }
 >
@@ -25,20 +23,16 @@ exports[`PureSkeletonContent test suite should have correct props and layout bet
   >
     <View
       style={
-        Array [
-          Object {
-            "height": "100%",
-            "position": "absolute",
-            "width": "100%",
-          },
-          Object {
-            "transform": Array [
-              Object {
-                "translateX": undefined,
-              },
-            ],
-          },
-        ]
+        Object {
+          "height": 100,
+          "position": "absolute",
+          "transform": Array [
+            Object {
+              "translateX": -240,
+            },
+          ],
+          "width": 240,
+        }
       }
     >
       <BVLinearGradient
@@ -83,20 +77,16 @@ exports[`PureSkeletonContent test suite should have correct props and layout bet
   >
     <View
       style={
-        Array [
-          Object {
-            "height": "100%",
-            "position": "absolute",
-            "width": "100%",
-          },
-          Object {
-            "transform": Array [
-              Object {
-                "translateX": undefined,
-              },
-            ],
-          },
-        ]
+        Object {
+          "height": 40,
+          "position": "absolute",
+          "transform": Array [
+            Object {
+              "translateX": -180,
+            },
+          ],
+          "width": 180,
+        }
       }
     >
       <BVLinearGradient
@@ -136,37 +126,31 @@ exports[`PureSkeletonContent test suite should have the correct layout when load
   onLayout={[Function]}
   style={
     Object {
-      "alignItems": "center",
       "flex": 1,
-      "justifyContent": "center",
     }
   }
 >
   <View
     style={
-      Array [
-        Object {
-          "backgroundColor": "#E1E9EE",
-          "borderRadius": 4,
-          "height": 100,
-          "marginBottom": 10,
-          "overflow": "hidden",
-          "width": 240,
-        },
-      ]
+      Object {
+        "backgroundColor": "#E1E9EE",
+        "borderRadius": 4,
+        "height": 100,
+        "marginBottom": 10,
+        "overflow": "hidden",
+        "width": 240,
+      }
     }
   />
   <View
     style={
-      Array [
-        Object {
-          "backgroundColor": "grey",
-          "borderRadius": 20,
-          "height": 40,
-          "overflow": "hidden",
-          "width": 180,
-        },
-      ]
+      Object {
+        "backgroundColor": "grey",
+        "borderRadius": 20,
+        "height": 40,
+        "overflow": "hidden",
+        "width": 180,
+      }
     }
   />
 </View>
@@ -177,9 +161,7 @@ exports[`PureSkeletonContent test suite should not re-render PureSkeleton on top
   onLayout={[Function]}
   style={
     Object {
-      "alignItems": "center",
       "flex": 1,
-      "justifyContent": "center",
     }
   }
 >
@@ -197,9 +179,7 @@ exports[`PureSkeletonContent test suite should not re-render PureSkeleton on top
   onLayout={[Function]}
   style={
     Object {
-      "alignItems": "center",
       "flex": 1,
-      "justifyContent": "center",
     }
   }
 >
@@ -217,9 +197,7 @@ exports[`PureSkeletonContent test suite should not re-render PureSkeleton on top
   onLayout={[Function]}
   style={
     Object {
-      "alignItems": "center",
       "flex": 1,
-      "justifyContent": "center",
     }
   }
 >
@@ -237,9 +215,7 @@ exports[`PureSkeletonContent test suite should not re-render PureSkeleton on top
   onLayout={[Function]}
   style={
     Object {
-      "alignItems": "center",
       "flex": 1,
-      "justifyContent": "center",
     }
   }
 >
@@ -256,9 +232,7 @@ exports[`PureSkeletonContent test suite should render empty alone 1`] = `
   onLayout={[Function]}
   style={
     Object {
-      "alignItems": "center",
       "flex": 1,
-      "justifyContent": "center",
     }
   }
 >

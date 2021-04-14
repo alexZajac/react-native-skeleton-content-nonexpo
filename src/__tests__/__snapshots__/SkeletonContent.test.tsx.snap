@@ -5,9 +5,7 @@ exports[`SkeletonComponent test suite should have correct props and layout betwe
   onLayout={[Function]}
   style={
     Object {
-      "alignItems": "center",
       "flex": 1,
-      "justifyContent": "center",
     }
   }
 >
@@ -25,20 +23,16 @@ exports[`SkeletonComponent test suite should have correct props and layout betwe
   >
     <View
       style={
-        Array [
-          Object {
-            "height": "100%",
-            "position": "absolute",
-            "width": "100%",
-          },
-          Object {
-            "transform": Array [
-              Object {
-                "translateX": undefined,
-              },
-            ],
-          },
-        ]
+        Object {
+          "height": 100,
+          "position": "absolute",
+          "transform": Array [
+            Object {
+              "translateX": -240,
+            },
+          ],
+          "width": 240,
+        }
       }
     >
       <BVLinearGradient
@@ -83,20 +77,16 @@ exports[`SkeletonComponent test suite should have correct props and layout betwe
   >
     <View
       style={
-        Array [
-          Object {
-            "height": "100%",
-            "position": "absolute",
-            "width": "100%",
-          },
-          Object {
-            "transform": Array [
-              Object {
-                "translateX": undefined,
-              },
-            ],
-          },
-        ]
+        Object {
+          "height": 40,
+          "position": "absolute",
+          "transform": Array [
+            Object {
+              "translateX": -180,
+            },
+          ],
+          "width": 180,
+        }
       }
     >
       <BVLinearGradient
@@ -136,37 +126,31 @@ exports[`SkeletonComponent test suite should have the correct layout when loadin
   onLayout={[Function]}
   style={
     Object {
-      "alignItems": "center",
       "flex": 1,
-      "justifyContent": "center",
     }
   }
 >
   <View
     style={
-      Array [
-        Object {
-          "backgroundColor": "#E1E9EE",
-          "borderRadius": 4,
-          "height": 100,
-          "marginBottom": 10,
-          "overflow": "hidden",
-          "width": 240,
-        },
-      ]
+      Object {
+        "backgroundColor": "#E1E9EE",
+        "borderRadius": 4,
+        "height": 100,
+        "marginBottom": 10,
+        "overflow": "hidden",
+        "width": 240,
+      }
     }
   />
   <View
     style={
-      Array [
-        Object {
-          "backgroundColor": "grey",
-          "borderRadius": 20,
-          "height": 40,
-          "overflow": "hidden",
-          "width": 180,
-        },
-      ]
+      Object {
+        "backgroundColor": "grey",
+        "borderRadius": 20,
+        "height": 40,
+        "overflow": "hidden",
+        "width": 180,
+      }
     }
   />
 </View>
@@ -177,9 +161,7 @@ exports[`SkeletonComponent test suite should render empty alone 1`] = `
   onLayout={[Function]}
   style={
     Object {
-      "alignItems": "center",
       "flex": 1,
-      "justifyContent": "center",
     }
   }
 />
@@ -190,58 +172,38 @@ exports[`SkeletonComponent test suite should render the correct bones for childr
   onLayout={[Function]}
   style={
     Object {
-      "alignItems": "center",
       "flex": 1,
-      "justifyContent": "center",
     }
   }
 >
   <View
     style={
-      Array [
-        Object {
-          "borderRadius": 4,
-          "height": 100,
-          "width": 200,
-        },
-        Object {
-          "backgroundColor": AnimatedValue {
-            " __value": 4278190080,
-          },
-        },
-      ]
+      Object {
+        "backgroundColor": "rgba(225, 233, 238, 1)",
+        "borderRadius": 4,
+        "height": 100,
+        "width": 200,
+      }
     }
   />
   <View
     style={
-      Array [
-        Object {
-          "borderRadius": 4,
-          "height": 120,
-          "width": 20,
-        },
-        Object {
-          "backgroundColor": AnimatedValue {
-            " __value": 4278190080,
-          },
-        },
-      ]
+      Object {
+        "backgroundColor": "rgba(225, 233, 238, 1)",
+        "borderRadius": 4,
+        "height": 120,
+        "width": 20,
+      }
     }
   />
   <View
     style={
-      Array [
-        Object {
-          "borderRadius": 4,
-          "height": 80,
-          "width": 240,
-        },
-        Object {
-          "backgroundColor": AnimatedValue {
-            " __value": 4278190080,
-          },
-        },
-      ]
+      Object {
+        "backgroundColor": "rgba(225, 233, 238, 1)",
+        "borderRadius": 4,
+        "height": 80,
+        "width": 240,
+      }
     }
   />
 </View>
@@ -252,9 +214,7 @@ exports[`SkeletonComponent test suite should support nested layouts 1`] = `
   onLayout={[Function]}
   style={
     Object {
-      "alignItems": "center",
       "flex": 1,
-      "justifyContent": "center",
     }
   }
 >
@@ -280,20 +240,16 @@ exports[`SkeletonComponent test suite should support nested layouts 1`] = `
     >
       <View
         style={
-          Array [
-            Object {
-              "height": "100%",
-              "position": "absolute",
-              "width": "100%",
-            },
-            Object {
-              "transform": Array [
-                Object {
-                  "translateX": undefined,
-                },
-              ],
-            },
-          ]
+          Object {
+            "height": 120,
+            "position": "absolute",
+            "transform": Array [
+              Object {
+                "translateX": -200,
+              },
+            ],
+            "width": 200,
+          }
         }
       >
         <BVLinearGradient
@@ -338,20 +294,16 @@ exports[`SkeletonComponent test suite should support nested layouts 1`] = `
     >
       <View
         style={
-          Array [
-            Object {
-              "height": "100%",
-              "position": "absolute",
-              "width": "100%",
-            },
-            Object {
-              "transform": Array [
-                Object {
-                  "translateX": undefined,
-                },
-              ],
-            },
-          ]
+          Object {
+            "height": 100,
+            "position": "absolute",
+            "transform": Array [
+              Object {
+                "translateX": -180,
+              },
+            ],
+            "width": 180,
+          }
         }
       >
         <BVLinearGradient
@@ -397,20 +349,16 @@ exports[`SkeletonComponent test suite should support nested layouts 1`] = `
   >
     <View
       style={
-        Array [
-          Object {
-            "height": "100%",
-            "position": "absolute",
-            "width": "100%",
-          },
-          Object {
-            "transform": Array [
-              Object {
-                "translateX": undefined,
-              },
-            ],
-          },
-        ]
+        Object {
+          "height": 40,
+          "position": "absolute",
+          "transform": Array [
+            Object {
+              "translateX": -180,
+            },
+          ],
+          "width": 180,
+        }
       }
     >
       <BVLinearGradient
@@ -468,20 +416,16 @@ exports[`SkeletonComponent test suite should support percentage for child size 1
   >
     <View
       style={
-        Array [
-          Object {
-            "height": "100%",
-            "position": "absolute",
-            "width": "100%",
-          },
-          Object {
-            "transform": Array [
-              Object {
-                "translateX": undefined,
-              },
-            ],
-          },
-        ]
+        Object {
+          "height": 0,
+          "position": "absolute",
+          "transform": Array [
+            Object {
+              "translateX": -0,
+            },
+          ],
+          "width": 0,
+        }
       }
     >
       <BVLinearGradient
@@ -526,20 +470,16 @@ exports[`SkeletonComponent test suite should support percentage for child size 1
   >
     <View
       style={
-        Array [
-          Object {
-            "height": "100%",
-            "position": "absolute",
-            "width": "100%",
-          },
-          Object {
-            "transform": Array [
-              Object {
-                "translateX": undefined,
-              },
-            ],
-          },
-        ]
+        Object {
+          "height": 0,
+          "position": "absolute",
+          "transform": Array [
+            Object {
+              "translateX": -0,
+            },
+          ],
+          "width": 0,
+        }
       }
     >
       <BVLinearGradient

@@ -1,4 +1,5 @@
-import Animated, { Easing } from 'react-native-reanimated';
+import Animated, { Easing, StyleSheet } from 'react-native';
+
 import { AnimationDirection, AnimationType } from './types';
 
 export const DEFAULT_BORDER_RADIUS = 4;
@@ -15,3 +16,17 @@ export const DEFAULT_EASING: Animated.EasingFunction = Easing.bezier(
   1
 );
 export const DEFAULT_LOADING = true;
+
+export const styles = StyleSheet.create({
+  absoluteGradient: {
+    height: '100%',
+    position: 'absolute',
+    width: '100%'
+  },
+  container: {
+    flex: 1
+  },
+  gradientChild: {
+    flex: 1
+  }
+});

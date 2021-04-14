@@ -1,11 +1,12 @@
 import * as React from 'react';
-import { IPureSkeletonContentProps } from './types';
-import SkeletonContent from './SkeletonContent';
 
-const didChange = <T extends object>(
+import SkeletonContent from './SkeletonContent';
+import { IPureSkeletonContentProps } from './types';
+
+export const didChange = <T extends object>(
   prev: any,
   next: any,
-  removeKey?: keyof IPureSkeletonContentProps<T>
+  removeKeys?: (keyof IPureSkeletonContentProps<T>)[]
 ) => {
   const prevKeys = Object.keys(prev);
   const nextKeys = Object.keys(next);
@@ -16,8 +17,8 @@ const didChange = <T extends object>(
 
   const keys = new Set([...prevKeys, ...nextKeys]);
 
-  if (removeKey) {
-    keys.delete(removeKey);
+  if (Array.isArray(removeKeys) && removeKeys.length > 0) {
+    removeKeys.forEach(key => keys.delete(key));
   }
 
   // eslint-disable-next-line no-restricted-syntax
@@ -30,17 +31,37 @@ const didChange = <T extends object>(
   return false;
 };
 
-const PureSkeletonContent = <T,>(props: IPureSkeletonContentProps<T>) => {
-  return <SkeletonContent {...props} />;
-};
+const PureSkeletonContent = <T,>(props: IPureSkeletonContentProps<T>) => (
+  <SkeletonContent {...props} />
+);
 
 export default React.memo(PureSkeletonContent, (prev, next) => {
-  if (didChange(prev, next, 'componentProps')) {
+  if (didChange(prev, next, ['layout', 'componentProps'])) {
     return false;
   }
 
-  if (Object.is(prev.componentProps, next.componentProps)) {
+  // is not same length
+  if (prev.layout?.length !== next.layout?.length) {
+    return false;
+  }
+
+  // if shallow equal
+  if (
+    Object.is(prev.componentProps, next.componentProps) &&
+    Object.is(prev.layout, next.layout)
+  ) {
     return true;
+  }
+
+  // since already tested above for being undefined
+  // check if items in layout are equal
+  if (prev.layout && next.layout) {
+    // eslint-disable-next-line no-restricted-syntax
+    for (const item of prev.layout) {
+      if (!next.layout.find(it => Object.is(it, item))) {
+        return false;
+      }
+    }
   }
 
   if (
