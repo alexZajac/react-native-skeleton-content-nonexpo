@@ -2,7 +2,7 @@ import * as React from 'react';
 import { StyleSheet, View } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 import Animated, { interpolateNode } from 'react-native-reanimated';
-import { interpolateColor, loop, useValue } from 'react-native-redash';
+import { interpolateColor, loop, useValue } from 'react-native-redash/lib/module/v1';
 import {
   ICustomViewStyle,
   DEFAULT_ANIMATION_DIRECTION,
