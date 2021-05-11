@@ -5,5 +5,3 @@ npm-debug.log
 node_modules
 # Runtime data
 tmp
-tsconfig.json
-src
