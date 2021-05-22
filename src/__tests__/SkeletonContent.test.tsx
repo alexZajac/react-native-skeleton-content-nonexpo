@@ -111,7 +111,7 @@ describe('SkeletonComponent test suite', () => {
         ...w1,
         borderRadius: DEFAULT_BORDER_RADIUS
       },
-      { backgroundColor: { ' __value': NaN  } }
+      { backgroundColor: { ' __value': NaN } }
     ]);
     expect(bones[2].props.style).toEqual([
       {
