@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { useEffect } from 'react';
 import { StyleSheet, View } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 import Animated, { FadeIn, interpolateNode } from 'react-native-reanimated';
@@ -20,7 +21,6 @@ import {
   ISkeletonContentProps,
   IDirection
 } from './Constants';
-import usePreviousValue from './helper/usePreviousValue';
 
 const { useCode, set, cond, eq } = Animated;
 const { useState, useCallback } = React;
@@ -64,13 +64,19 @@ const SkeletonContent: React.FunctionComponent<ISkeletonContentProps> = ({
   highlightColor = DEFAULT_HIGHLIGHT_COLOR,
   children
 }) => {
-  const prevLoading = usePreviousValue(isLoading);
-
   const animationValue = useValue(0);
   const loadingValue = useValue(isLoading ? 1 : 0);
   const shiverValue = useValue(animationType === 'shiver' ? 1 : 0);
 
   const [componentSize, onLayout] = useLayout();
+
+  const [fadeInEnabled, setFadeInEnabled] = useState<boolean>(false);
+
+  useEffect(() => {
+    if (isLoading && !fadeInEnabled) {
+      setFadeInEnabled(true);
+    }
+  }, [fadeInEnabled, isLoading]);
 
   useCode(
     () =>
@@ -394,7 +400,7 @@ const SkeletonContent: React.FunctionComponent<ISkeletonContentProps> = ({
     if (isLoading) {
       return getBones(layout!, children);
     }
-    if (prevLoading === true && isLoading === false) {
+    if (fadeInEnabled && isLoading === false) {
       return (
         <Animated.View entering={FadeIn.duration(1000)}>
           {children}
