@@ -1,4 +1,4 @@
-import Animated, { Easing, StyleSheet } from 'react-native';
+import Animated, { EasingNode, StyleSheet } from 'react-native';
 
 import { AnimationDirection, AnimationType } from './types';
 
@@ -9,7 +9,7 @@ export const DEFAULT_ANIMATION_DIRECTION: AnimationDirection =
   'horizontalRight';
 export const DEFAULT_BONE_COLOR = '#E1E9EE';
 export const DEFAULT_HIGHLIGHT_COLOR = '#F2F8FC';
-export const DEFAULT_EASING: Animated.EasingFunction = Easing.bezier(
+export const DEFAULT_EASING: Animated.EasingFunction = EasingNode.bezier(
   0.5,
   0,
   0.25,

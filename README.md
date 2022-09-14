@@ -47,7 +47,7 @@ import SkeletonContent from 'react-native-skeleton-content-nonexpo';
 2.  Once you create the SkeletonContent, you have two options:
 
 - **Child Layout** : The component will figure out the layout of its bones with the dimensions of its direct children.
-- **Custom Layout** : You provide a prop `layout` to the component specifying the size of the bones (see the [Examples](#examples) section below). Herunder is the example with a custom layout. A key prop is optionnal but highly recommended.
+- **Custom Layout** : You provide a prop `layout` to the component specifying the size of the bones (see the [Examples](#examples) section below). Herunder is the example with a custom layout. A key prop is optional but highly recommended.
 
 ```javascript
 export default function Placeholder() {

@@ -1,6 +1,6 @@
 {
   "name": "react-native-skeleton-content-nonexpo",
-  "version": "1.0.11",
+  "version": "1.0.13",
   "description": "A simple and fully customizable React Native component that implements a skeleton-like loader",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
@@ -53,8 +53,12 @@
     "url": "https://github.com/alexZajac/react-native-skeleton-content-nonexpo/issues"
   },
   "homepage": "https://github.com/alexZajac/react-native-skeleton-content-nonexpo#readme",
+  "dependencies": {
+    "react-native-redash": "^16.0.11"
+  },
   "peerDependencies": {
-    "react-native-linear-gradient": "^2.5.1"
+    "react-native-linear-gradient": "^2.5.1",
+    "react-native-reanimated": "^2.1.0"
   },
   "devDependencies": {
     "@babel/preset-typescript": "^7.10.1",
@@ -70,9 +74,10 @@
     "jest": "^24.9.0",
     "prettier": "^1.18.2",
     "react": "^16.10.2",
-    "react-native": "^0.61.2",
+    "react-native": "^0.62.3",
     "react-native-gesture-handler": "^1.7.0",
     "react-native-linear-gradient": "^2.5.6",
+    "react-native-reanimated": "^2.1.0",
     "react-test-renderer": "^16.13.1",
     "typescript": "^3.7.2"
   },
