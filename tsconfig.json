@@ -19,7 +19,6 @@
   },
   "include": ["./src", "node_modules/react-native-redash/lib/typescript/v1/index.d.ts"],
   "exclude": [
-    "**/__tests__",
     "**/node_modules/**",
     "**/lib/**",
     "**/coverage/**",

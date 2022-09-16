@@ -1,5 +1,6 @@
-import { View, Text, Animated } from 'react-native';
+import { View, Text } from 'react-native';
 import React from 'react';
+import Animated from 'react-native-reanimated';
 
 import LinearGradient from 'react-native-linear-gradient';
 import { create } from 'react-test-renderer';
@@ -49,9 +50,7 @@ describe('SkeletonComponent test suite', () => {
     // two bones and parent component
     expect(bones.length).toEqual(layout.length + 1);
     expect(bones[0].props.style).toEqual({
-      alignItems: 'center',
-      flex: 1,
-      justifyContent: 'center'
+      flex: 1
     });
     // default props that are not set
     expect(bones[1].props.style).toEqual([{ ...layout[0], ...staticStyles }]);
@@ -110,21 +109,21 @@ describe('SkeletonComponent test suite', () => {
         ...w1,
         borderRadius: DEFAULT_BORDER_RADIUS
       },
-      { backgroundColor: { ' __value': 4278190080 } }
+      { backgroundColor: new Animated.Value(0) }
     ]);
     expect(bones[2].props.style).toEqual([
       {
         ...w2,
         borderRadius: DEFAULT_BORDER_RADIUS
       },
-      { backgroundColor: { ' __value': 4278190080 } }
+      { backgroundColor: new Animated.Value(0) }
     ]);
     expect(bones[3].props.style).toEqual([
       {
         ...w3,
         borderRadius: DEFAULT_BORDER_RADIUS
       },
-      { backgroundColor: { ' __value': 4278190080 } }
+      { backgroundColor: new Animated.Value(0) }
     ]);
     expect(instance.toJSON()).toMatchSnapshot();
   });

@@ -5,9 +5,7 @@ exports[`SkeletonComponent test suite should have correct props and layout betwe
   onLayout={[Function]}
   style={
     Object {
-      "alignItems": "center",
       "flex": 1,
-      "justifyContent": "center",
     }
   }
 >
@@ -32,11 +30,15 @@ exports[`SkeletonComponent test suite should have correct props and layout betwe
             "width": "100%",
           },
           Object {
+            "height": 100,
             "transform": Array [
               Object {
-                "translateX": undefined,
+                "translateX": AnimatedValue {
+                  " __value": 0,
+                },
               },
             ],
+            "width": 240,
           },
         ]
       }
@@ -90,11 +92,15 @@ exports[`SkeletonComponent test suite should have correct props and layout betwe
             "width": "100%",
           },
           Object {
+            "height": 40,
             "transform": Array [
               Object {
-                "translateX": undefined,
+                "translateX": AnimatedValue {
+                  " __value": 0,
+                },
               },
             ],
+            "width": 180,
           },
         ]
       }
@@ -136,9 +142,7 @@ exports[`SkeletonComponent test suite should have the correct layout when loadin
   onLayout={[Function]}
   style={
     Object {
-      "alignItems": "center",
       "flex": 1,
-      "justifyContent": "center",
     }
   }
 >
@@ -177,9 +181,7 @@ exports[`SkeletonComponent test suite should render empty alone 1`] = `
   onLayout={[Function]}
   style={
     Object {
-      "alignItems": "center",
       "flex": 1,
-      "justifyContent": "center",
     }
   }
 />
@@ -190,9 +192,7 @@ exports[`SkeletonComponent test suite should render the correct bones for childr
   onLayout={[Function]}
   style={
     Object {
-      "alignItems": "center",
       "flex": 1,
-      "justifyContent": "center",
     }
   }
 >
@@ -206,7 +206,7 @@ exports[`SkeletonComponent test suite should render the correct bones for childr
         },
         Object {
           "backgroundColor": AnimatedValue {
-            " __value": 4278190080,
+            " __value": 0,
           },
         },
       ]
@@ -222,7 +222,7 @@ exports[`SkeletonComponent test suite should render the correct bones for childr
         },
         Object {
           "backgroundColor": AnimatedValue {
-            " __value": 4278190080,
+            " __value": 0,
           },
         },
       ]
@@ -238,7 +238,7 @@ exports[`SkeletonComponent test suite should render the correct bones for childr
         },
         Object {
           "backgroundColor": AnimatedValue {
-            " __value": 4278190080,
+            " __value": 0,
           },
         },
       ]
@@ -252,9 +252,7 @@ exports[`SkeletonComponent test suite should support nested layouts 1`] = `
   onLayout={[Function]}
   style={
     Object {
-      "alignItems": "center",
       "flex": 1,
-      "justifyContent": "center",
     }
   }
 >
@@ -287,11 +285,15 @@ exports[`SkeletonComponent test suite should support nested layouts 1`] = `
               "width": "100%",
             },
             Object {
+              "height": 120,
               "transform": Array [
                 Object {
-                  "translateX": undefined,
+                  "translateX": AnimatedValue {
+                    " __value": 0,
+                  },
                 },
               ],
+              "width": 200,
             },
           ]
         }
@@ -345,11 +347,15 @@ exports[`SkeletonComponent test suite should support nested layouts 1`] = `
               "width": "100%",
             },
             Object {
+              "height": 100,
               "transform": Array [
                 Object {
-                  "translateX": undefined,
+                  "translateX": AnimatedValue {
+                    " __value": 0,
+                  },
                 },
               ],
+              "width": 180,
             },
           ]
         }
@@ -404,11 +410,15 @@ exports[`SkeletonComponent test suite should support nested layouts 1`] = `
             "width": "100%",
           },
           Object {
+            "height": 40,
             "transform": Array [
               Object {
-                "translateX": undefined,
+                "translateX": AnimatedValue {
+                  " __value": 0,
+                },
               },
             ],
+            "width": 180,
           },
         ]
       }
@@ -475,11 +485,15 @@ exports[`SkeletonComponent test suite should support percentage for child size 1
             "width": "100%",
           },
           Object {
+            "height": 0,
             "transform": Array [
               Object {
-                "translateX": undefined,
+                "translateX": AnimatedValue {
+                  " __value": 0,
+                },
               },
             ],
+            "width": 0,
           },
         ]
       }
@@ -533,11 +547,15 @@ exports[`SkeletonComponent test suite should support percentage for child size 1
             "width": "100%",
           },
           Object {
+            "height": 0,
             "transform": Array [
               Object {
-                "translateX": undefined,
+                "translateX": AnimatedValue {
+                  " __value": 0,
+                },
               },
             ],
+            "width": 0,
           },
         ]
       }

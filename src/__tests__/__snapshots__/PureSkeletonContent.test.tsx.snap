@@ -23,16 +23,24 @@ exports[`PureSkeletonContent test suite should have correct props and layout bet
   >
     <View
       style={
-        Object {
-          "height": 100,
-          "position": "absolute",
-          "transform": Array [
-            Object {
-              "translateX": -240,
-            },
-          ],
-          "width": 240,
-        }
+        Array [
+          Object {
+            "height": "100%",
+            "position": "absolute",
+            "width": "100%",
+          },
+          Object {
+            "height": 100,
+            "transform": Array [
+              Object {
+                "translateX": AnimatedValue {
+                  " __value": 0,
+                },
+              },
+            ],
+            "width": 240,
+          },
+        ]
       }
     >
       <BVLinearGradient
@@ -77,16 +85,24 @@ exports[`PureSkeletonContent test suite should have correct props and layout bet
   >
     <View
       style={
-        Object {
-          "height": 40,
-          "position": "absolute",
-          "transform": Array [
-            Object {
-              "translateX": -180,
-            },
-          ],
-          "width": 180,
-        }
+        Array [
+          Object {
+            "height": "100%",
+            "position": "absolute",
+            "width": "100%",
+          },
+          Object {
+            "height": 40,
+            "transform": Array [
+              Object {
+                "translateX": AnimatedValue {
+                  " __value": 0,
+                },
+              },
+            ],
+            "width": 180,
+          },
+        ]
       }
     >
       <BVLinearGradient
@@ -132,25 +148,29 @@ exports[`PureSkeletonContent test suite should have the correct layout when load
 >
   <View
     style={
-      Object {
-        "backgroundColor": "#E1E9EE",
-        "borderRadius": 4,
-        "height": 100,
-        "marginBottom": 10,
-        "overflow": "hidden",
-        "width": 240,
-      }
+      Array [
+        Object {
+          "backgroundColor": "#E1E9EE",
+          "borderRadius": 4,
+          "height": 100,
+          "marginBottom": 10,
+          "overflow": "hidden",
+          "width": 240,
+        },
+      ]
     }
   />
   <View
     style={
-      Object {
-        "backgroundColor": "grey",
-        "borderRadius": 20,
-        "height": 40,
-        "overflow": "hidden",
-        "width": 180,
-      }
+      Array [
+        Object {
+          "backgroundColor": "grey",
+          "borderRadius": 20,
+          "height": 40,
+          "overflow": "hidden",
+          "width": 180,
+        },
+      ]
     }
   />
 </View>

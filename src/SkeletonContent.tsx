@@ -1,7 +1,9 @@
 import * as React from 'react';
-import { useEffect, useMemo, useRef } from 'react';
-import { Animated, View } from 'react-native';
+import { useMemo } from 'react';
+import { useCode, cond, eq, set } from 'react-native-reanimated';
 
+import { View } from 'react-native';
+import { loop, useValue } from 'react-native-redash/lib/module/v1';
 import {
   DEFAULT_ANIMATION_DIRECTION,
   DEFAULT_ANIMATION_TYPE,
@@ -34,80 +36,40 @@ const SkeletonContent: React.FunctionComponent<ISkeletonContentProps &
   component: Component,
   componentProps
 }) => {
-  const animatedValue = useRef(new Animated.Value(0));
-
-  const animatedCompositions = useRef<{
-    shiverLoop?: Animated.CompositeAnimation;
-    loop?: Animated.CompositeAnimation;
-  }>({
-    shiverLoop: undefined,
-    loop: undefined
-  });
+  const animationValue = useValue(0);
+  const loadingValue = useValue(isLoading ? 1 : 0);
+  const shiverValue = useValue(animationType === 'shiver' ? 1 : 0);
 
   const [componentSize, onLayout] = useLayout();
 
-  useEffect(() => {
-    if (isLoading) {
-      if (animationType === 'shiver') {
-        if (!animatedCompositions.current.shiverLoop) {
-          animatedCompositions.current.shiverLoop = Animated.loop(
-            Animated.timing(animatedValue.current, {
-              easing: easing as any,
-              duration,
-              toValue: 1,
-              useNativeDriver: true
-            })
-          );
-        }
-
-        animatedCompositions.current.shiverLoop.start();
-      } else {
-        if (!animatedCompositions.current.loop) {
-          animatedCompositions.current.loop = Animated.loop(
-            Animated.sequence([
-              Animated.timing(animatedValue.current, {
-                easing: easing as any,
-                toValue: 1,
-                delay: duration,
-                duration: duration / 2,
-                useNativeDriver: true
-              }),
-              Animated.timing(animatedValue.current, {
-                easing: easing as any,
-                toValue: 0,
-                duration: duration / 2,
-                useNativeDriver: true
+  useCode(
+    () =>
+      cond(eq(loadingValue, 1), [
+        cond(
+          eq(shiverValue, 1),
+          [
+            set(
+              animationValue,
+              loop({
+                duration,
+                easing
               })
-            ])
-          );
-        }
-
-        animatedCompositions.current.loop.start();
-      }
-    } else if (animationType === 'shiver') {
-      if (animatedCompositions.current.shiverLoop) {
-        animatedCompositions.current.shiverLoop.stop();
-      }
-    } else if (animatedCompositions.current.loop) {
-      animatedCompositions.current.loop.stop();
-    }
-
-    let composition: Animated.CompositeAnimation | undefined;
-
-    if (animationType === 'shiver') {
-      if (animatedCompositions.current.shiverLoop) {
-        composition = animatedCompositions.current.shiverLoop;
-      }
-    } else if (animatedCompositions.current.loop) {
-      composition = animatedCompositions.current.loop;
-    }
-
-    return () => {
-      if (composition) {
-        composition.stop();
-      }
-    };
-  }, [isLoading, animationType, easing, duration]);
+            )
+          ],
+          [
+            set(
+              animationValue,
+              loop({
+                duration: duration! / 2,
+                easing,
+                boomerang: true
+              })
+            )
+          ]
+        )
+      ]),
+    [loadingValue, shiverValue, animationValue]
+  );
 
   const skeletonMeta = useMemo<ISkeletonMeta>(
     () => ({
@@ -128,9 +90,9 @@ const SkeletonContent: React.FunctionComponent<ISkeletonContentProps &
 
   const bones = useMemo(() => {
     return isLoading
-      ? getBones(layout, children, '', animatedValue.current, skeletonMeta)
+      ? getBones(layout, children, '', animationValue, skeletonMeta)
       : null;
-  }, [children, isLoading, layout, skeletonMeta]);
+  }, [animationValue, children, isLoading, layout, skeletonMeta]);
 
   const getComponent = () =>
     Component ? <Component {...componentProps} /> : children;

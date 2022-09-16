@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { useCallback, useState } from 'react';
-import { Animated, LayoutChangeEvent, View } from 'react-native';
+import { LayoutChangeEvent, View } from 'react-native';
+import Animated from 'react-native-reanimated';
 import LinearGradient from 'react-native-linear-gradient';
 
 import { DEFAULT_BORDER_RADIUS, styles } from './Constants';
@@ -123,7 +124,7 @@ const getGradientSize = (
 
 const getStaticBoneStyles = (
   boneLayout: ICustomViewStyle,
-  animatedValue: Animated.Value,
+  animatedValue: Animated.Value<number>,
   meta: ISkeletonMeta
 ): (ICustomViewStyle | { backgroundColor: any })[] => {
   const pulseStyles = [
@@ -169,7 +170,7 @@ const getPositionRange = (
 
 const getGradientTransform = (
   boneLayout: ICustomViewStyle,
-  animatedValue: Animated.Value,
+  animatedValue: Animated.Value<number>,
   meta: ISkeletonMeta
 ): object => {
   let transform = {};
@@ -289,7 +290,7 @@ const getBoneContainer = (
 const getStaticBone = (
   layoutStyle: ICustomViewStyle,
   key: number | string,
-  animatedValue: Animated.Value,
+  animatedValue: Animated.Value<number>,
   skeletonMeta: ISkeletonMeta
 ): JSX.Element => (
   <Animated.View
@@ -301,7 +302,7 @@ const getStaticBone = (
 const getShiverBone = (
   layoutStyle: ICustomViewStyle,
   key: number | string,
-  animatedValue: Animated.Value,
+  animatedValue: Animated.Value<number>,
   skeletonMeta: ISkeletonMeta
 ): JSX.Element => {
   const { boneColor, highlightColor } = skeletonMeta;
@@ -331,7 +332,7 @@ export const getBones = (
   bonesLayout: ICustomViewStyle[] | undefined,
   childrenItems: any,
   prefix: string | number = '',
-  animatedValue: Animated.Value,
+  animatedValue: Animated.Value<number>,
   skeletonMeta: ISkeletonMeta
 ): JSX.Element[] => {
   const { animationType } = skeletonMeta;

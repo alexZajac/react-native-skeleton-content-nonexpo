@@ -1,5 +1,6 @@
-import { Text, TextStyle, Animated } from 'react-native';
+import { Text, TextStyle } from 'react-native';
 import React, { FunctionComponent, useEffect, useRef } from 'react';
+import Animated from 'react-native-reanimated';
 
 import LinearGradient from 'react-native-linear-gradient';
 import { create } from 'react-test-renderer';
@@ -95,7 +96,7 @@ describe('PureSkeletonContent test suite', () => {
     instance.update(<RenderFromTop count={1} />);
     expect(instance.toJSON()).toMatchSnapshot();
 
-    // cause FromTop to re render, local stays 1
+    // cause FromTop to re-render, local stays 1
     instance.update(<RenderFromTop otherField={2} count={1} />);
     expect(instance.toJSON()).toMatchSnapshot();
 
@@ -136,11 +137,13 @@ describe('PureSkeletonContent test suite', () => {
     const bones = component.findAllByType(Animated.View);
 
     // two bones and parent component
-    expect(bones.length).toEqual(layout.length);
-    /*expect(component.props.style).toEqual({ flex: 1 });
+    expect(bones.length - 1).toEqual(layout.length);
+    expect(bones[0].props.style).toEqual({ flex: 1 });
     // default props that are not set
-    expect(bones[1].props.style).toEqual({ ...layout[0], ...staticStyles });
-    expect(bones[2].props.style).toEqual({ overflow: 'hidden', ...layout[1] });*/
+    expect(bones[1].props.style).toEqual([{ ...layout[0], ...staticStyles }]);
+    expect(bones[2].props.style).toEqual([
+      { overflow: 'hidden', ...layout[1] }
+    ]);
     expect(instance.toJSON()).toMatchSnapshot();
   });
 
@@ -165,7 +168,7 @@ describe('PureSkeletonContent test suite', () => {
     let bones = component.findAllByType(LinearGradient);
     // one animated view child for each bone + parent
     expect(bones.length).toEqual(layout.length);
-    /*bones = component.findAllByType(Animated.View);
+    bones = component.findAllByType(Animated.View);
     expect(bones[1].props.style).toEqual({
       ...staticStyles,
       ...w1
@@ -173,7 +176,7 @@ describe('PureSkeletonContent test suite', () => {
     expect(bones[3].props.style).toEqual({
       ...staticStyles,
       ...w2
-    });*/
+    });
     let children = component.findAllByType(Text);
     // no child since it's loading
     expect(children.length).toEqual(0);
@@ -206,7 +209,7 @@ describe('PureSkeletonContent test suite', () => {
 
     bones = instance.root.findAllByType(LinearGradient);
     expect(bones.length).toEqual(layout.length);
-    /*bones = component.findAllByType(Animated.View);
+    bones = component.findAllByType(Animated.View);
     expect(bones[1].props.style).toEqual({
       ...staticStyles,
       ...w1
@@ -214,7 +217,7 @@ describe('PureSkeletonContent test suite', () => {
     expect(bones[3].props.style).toEqual({
       ...staticStyles,
       ...w2
-    });*/
+    });
     children = instance.root.findAllByType(Text);
     // no child since it's loading
     expect(children.length).toEqual(0);
