@@ -1,0 +1,264 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PureSkeletonContent test suite should have correct props and layout between loading states 1`] = `
+<View
+  onLayout={[Function]}
+  style={
+    Object {
+      "flex": 1,
+    }
+  }
+>
+  <View
+    style={
+      Object {
+        "backgroundColor": "#E1E9EE",
+        "borderRadius": 4,
+        "height": 100,
+        "marginBottom": 10,
+        "overflow": "hidden",
+        "width": 240,
+      }
+    }
+  >
+    <View
+      style={
+        Array [
+          Object {
+            "height": "100%",
+            "position": "absolute",
+            "width": "100%",
+          },
+          Object {
+            "height": 100,
+            "transform": Array [
+              Object {
+                "translateX": AnimatedValue {
+                  " __value": 0,
+                },
+              },
+            ],
+            "width": 240,
+          },
+        ]
+      }
+    >
+      <BVLinearGradient
+        colors={
+          Array [
+            4292995566,
+            4294113532,
+            4292995566,
+          ]
+        }
+        endPoint={
+          Object {
+            "x": 1,
+            "y": 0,
+          }
+        }
+        locations={null}
+        startPoint={
+          Object {
+            "x": 0,
+            "y": 0,
+          }
+        }
+        style={
+          Object {
+            "flex": 1,
+          }
+        }
+      />
+    </View>
+  </View>
+  <View
+    style={
+      Object {
+        "backgroundColor": "#E1E9EE",
+        "borderRadius": 4,
+        "height": 40,
+        "overflow": "hidden",
+        "width": 180,
+      }
+    }
+  >
+    <View
+      style={
+        Array [
+          Object {
+            "height": "100%",
+            "position": "absolute",
+            "width": "100%",
+          },
+          Object {
+            "height": 40,
+            "transform": Array [
+              Object {
+                "translateX": AnimatedValue {
+                  " __value": 0,
+                },
+              },
+            ],
+            "width": 180,
+          },
+        ]
+      }
+    >
+      <BVLinearGradient
+        colors={
+          Array [
+            4292995566,
+            4294113532,
+            4292995566,
+          ]
+        }
+        endPoint={
+          Object {
+            "x": 1,
+            "y": 0,
+          }
+        }
+        locations={null}
+        startPoint={
+          Object {
+            "x": 0,
+            "y": 0,
+          }
+        }
+        style={
+          Object {
+            "flex": 1,
+          }
+        }
+      />
+    </View>
+  </View>
+</View>
+`;
+
+exports[`PureSkeletonContent test suite should have the correct layout when loading 1`] = `
+<View
+  onLayout={[Function]}
+  style={
+    Object {
+      "flex": 1,
+    }
+  }
+>
+  <View
+    style={
+      Array [
+        Object {
+          "backgroundColor": "#E1E9EE",
+          "borderRadius": 4,
+          "height": 100,
+          "marginBottom": 10,
+          "overflow": "hidden",
+          "width": 240,
+        },
+      ]
+    }
+  />
+  <View
+    style={
+      Array [
+        Object {
+          "backgroundColor": "grey",
+          "borderRadius": 20,
+          "height": 40,
+          "overflow": "hidden",
+          "width": 180,
+        },
+      ]
+    }
+  />
+</View>
+`;
+
+exports[`PureSkeletonContent test suite should not re-render PureSkeleton on top component and same props re-render 1`] = `
+<View
+  onLayout={[Function]}
+  style={
+    Object {
+      "flex": 1,
+    }
+  }
+>
+  <Text>
+    Local: 
+    0
+     Props: 
+    0
+  </Text>
+</View>
+`;
+
+exports[`PureSkeletonContent test suite should not re-render PureSkeleton on top component and same props re-render 2`] = `
+<View
+  onLayout={[Function]}
+  style={
+    Object {
+      "flex": 1,
+    }
+  }
+>
+  <Text>
+    Local: 
+    1
+     Props: 
+    1
+  </Text>
+</View>
+`;
+
+exports[`PureSkeletonContent test suite should not re-render PureSkeleton on top component and same props re-render 3`] = `
+<View
+  onLayout={[Function]}
+  style={
+    Object {
+      "flex": 1,
+    }
+  }
+>
+  <Text>
+    Local: 
+    1
+     Props: 
+    1
+  </Text>
+</View>
+`;
+
+exports[`PureSkeletonContent test suite should not re-render PureSkeleton on top component and same props re-render 4`] = `
+<View
+  onLayout={[Function]}
+  style={
+    Object {
+      "flex": 1,
+    }
+  }
+>
+  <Text>
+    Local: 
+    2
+     Props: 
+  </Text>
+</View>
+`;
+
+exports[`PureSkeletonContent test suite should render empty alone 1`] = `
+<View
+  onLayout={[Function]}
+  style={
+    Object {
+      "flex": 1,
+    }
+  }
+>
+  <Text>
+    Hello 
+    World
+  </Text>
+</View>
+`;
