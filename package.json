@@ -53,9 +53,7 @@
     "url": "https://github.com/alexZajac/react-native-skeleton-content-nonexpo/issues"
   },
   "homepage": "https://github.com/alexZajac/react-native-skeleton-content-nonexpo#readme",
-  "dependencies": {
-    "react-native-redash": "^16.0.11"
-  },
+  "dependencies": {},
   "peerDependencies": {
     "react-native-linear-gradient": "^2.8.3",
     "react-native-reanimated": "^3.5.2"
