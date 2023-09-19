@@ -8,7 +8,7 @@ React native Skeleton Content, a simple yet fully customizable component made to
 
 ### New Features
 
-- The package has been rewritten to Hooks and is using the declarative [react-native-reanimated](https://github.com/software-mansion/react-native-reanimated) package for animations
+- The package has been rewritten to Hooks and is using the declarative [react-native-reanimated v3](https://github.com/software-mansion/react-native-reanimated) package for animations
 - It now supports nested layouts for children bones, see an example on [this snack](https://snack.expo.io/@alexandrezajac/skeleton-content-demo)
 - It finally supports percentages dimensions for bones, for any type of animation!
 
