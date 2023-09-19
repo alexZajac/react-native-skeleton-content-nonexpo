@@ -567,3 +567,55 @@ exports[`SkeletonComponent test suite should support percentage for child size 1
   </View>
 </View>
 `;
+
+exports[`SkeletonComponent test suite should wrap children in container when container component is passed 1`] = `
+<View
+  onLayout={[Function]}
+  style={
+    Object {
+      "alignItems": "center",
+      "flex": 1,
+      "justifyContent": "center",
+    }
+  }
+>
+  <RCTScrollView
+    keyboardShouldPersistTaps="always"
+    style={
+      Object {
+        "height": 100,
+        "width": 240,
+      }
+    }
+  >
+    <View>
+      <View
+        style={
+          Array [
+            Object {
+              "backgroundColor": "#E1E9EE",
+              "borderRadius": 4,
+              "height": 100,
+              "overflow": "hidden",
+              "width": 240,
+            },
+          ]
+        }
+      />
+    </View>
+  </RCTScrollView>
+  <View
+    style={
+      Array [
+        Object {
+          "backgroundColor": "#E1E9EE",
+          "borderRadius": 4,
+          "height": 40,
+          "overflow": "hidden",
+          "width": 180,
+        },
+      ]
+    }
+  />
+</View>
+`;
