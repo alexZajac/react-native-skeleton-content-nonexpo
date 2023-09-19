@@ -1,8 +1,13 @@
 import { StyleProp, ViewStyle } from 'react-native';
-import Animated, { EasingNode } from 'react-native-reanimated';
+import {
+  Easing,
+  EasingFunction,
+  EasingFunctionFactory
+} from 'react-native-reanimated';
 
-type _animationType = 'none' | 'shiver' | 'pulse' | undefined;
-type _animationDirection =
+export type AnimationType = 'none' | 'shiver' | 'pulse' | undefined;
+
+export type AnimationDirection =
   | 'horizontalLeft'
   | 'horizontalRight'
   | 'verticalTop'
@@ -16,6 +21,8 @@ type _animationDirection =
 export interface ICustomViewStyle extends ViewStyle {
   children?: ICustomViewStyle[];
   key?: number | string;
+  container?: React.ComponentType;
+  containerProps?: any;
 }
 
 export interface ISkeletonContentProps {
@@ -23,11 +30,11 @@ export interface ISkeletonContentProps {
   layout?: ICustomViewStyle[];
   duration?: number;
   containerStyle?: StyleProp<ViewStyle>;
-  animationType?: _animationType;
-  animationDirection?: _animationDirection;
+  animationType?: AnimationType;
+  animationDirection?: AnimationDirection;
   boneColor?: string;
   highlightColor?: string;
-  easing?: Animated.EasingNodeFunction;
+  easing?: EasingFunction;
   children?: any;
 }
 
@@ -36,14 +43,19 @@ export interface IDirection {
   y: number;
 }
 
+export interface ISize {
+  width: number;
+  height: number;
+}
+
 export const DEFAULT_BORDER_RADIUS = 4;
 export const DEFAULT_DURATION = 1200;
-export const DEFAULT_ANIMATION_TYPE: _animationType = 'shiver';
-export const DEFAULT_ANIMATION_DIRECTION: _animationDirection =
+export const DEFAULT_ANIMATION_TYPE: AnimationType = 'shiver';
+export const DEFAULT_ANIMATION_DIRECTION: AnimationDirection =
   'horizontalRight';
 export const DEFAULT_BONE_COLOR = '#E1E9EE';
 export const DEFAULT_HIGHLIGHT_COLOR = '#F2F8FC';
-export const DEFAULT_EASING: Animated.EasingNodeFunction = EasingNode.bezier(
+export const DEFAULT_EASING: EasingFunctionFactory = Easing.bezier(
   0.5,
   0,
   0.25,
