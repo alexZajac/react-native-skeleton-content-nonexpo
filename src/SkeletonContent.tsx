@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { StyleSheet, View } from 'react-native';
 import {
   useDerivedValue,
+  useSharedValue,
   withRepeat,
   withTiming
 } from 'react-native-reanimated';
@@ -44,21 +45,24 @@ const SkeletonContent: React.FC<ISkeletonContentProps> = ({
 
   const [componentSize, onLayout] = useLayout();
 
-  const animationValue = useDerivedValue(() => {
+  const animationValue = useSharedValue(0);
+
+  useEffect(() => {
     if (isLoading) {
       if (shiverValue === 1) {
-        return withRepeat(withTiming(1, { duration, easing }), -1);
+        animationValue.value = withRepeat(
+          withTiming(1, { duration, easing }),
+          -1
+        );
+      } else {
+        animationValue.value = withRepeat(
+          withTiming(1, { duration: duration / 2, easing }),
+          -1,
+          true
+        );
       }
-
-      return withRepeat(
-        withTiming(1, { duration: duration / 2, easing }),
-        -1,
-        true
-      );
     }
-
-    return 0;
-  });
+  }, [isLoading, shiverValue]);
 
   const contextProps: SkeletonContextProps = {
     animationValue,
