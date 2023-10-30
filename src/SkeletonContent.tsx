@@ -61,6 +61,8 @@ const SkeletonContent: React.FC<ISkeletonContentProps> = ({
           true
         );
       }
+    } else {
+      animationValue.value = 0;
     }
   }, [isLoading, shiverValue]);
 
