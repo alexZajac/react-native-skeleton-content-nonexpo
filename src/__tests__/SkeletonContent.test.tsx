@@ -1,4 +1,4 @@
-import { View, Text } from 'react-native';
+import { View, Text, ScrollView } from 'react-native';
 import React from 'react';
 import Animated from 'react-native-reanimated';
 
@@ -111,21 +111,21 @@ describe('SkeletonComponent test suite', () => {
         ...w1,
         borderRadius: DEFAULT_BORDER_RADIUS
       },
-      { backgroundColor: { ' __value': 4278190080 } }
+      { backgroundColor: undefined }
     ]);
     expect(bones[2].props.style).toEqual([
       {
         ...w2,
         borderRadius: DEFAULT_BORDER_RADIUS
       },
-      { backgroundColor: { ' __value': 4278190080 } }
+      { backgroundColor: undefined }
     ]);
     expect(bones[3].props.style).toEqual([
       {
         ...w3,
         borderRadius: DEFAULT_BORDER_RADIUS
       },
-      { backgroundColor: { ' __value': 4278190080 } }
+      { backgroundColor: undefined }
     ]);
     expect(instance.toJSON()).toMatchSnapshot();
   });
@@ -397,5 +397,45 @@ describe('SkeletonComponent test suite', () => {
       DEFAULT_HIGHLIGHT_COLOR,
       DEFAULT_BONE_COLOR
     ]);
+  });
+
+  it('should wrap children in container when container component is passed', () => {
+    const layout = [
+      {
+        width: 240,
+        height: 100,
+        container: ScrollView,
+        containerProps: { keyboardShouldPersistTaps: 'always' },
+        children: [
+          {
+            width: 240,
+            height: 100
+          }
+        ]
+      },
+      {
+        width: 180,
+        height: 40
+      }
+    ];
+    const props: ISkeletonContentProps = {
+      layout,
+      isLoading: true,
+      animationType: 'none'
+    };
+    const instance = create(<SkeletonContent {...props} />);
+    const component = instance.root;
+    const bones = component.findAllByType(ScrollView);
+
+    // only a single child is wrapped in the passed container component
+    expect(bones.length).toEqual(1);
+    // styles are passed down to the passed container component
+    expect(bones[0].props.style).toEqual({
+      width: 240,
+      height: 100
+    });
+    // props are passed down to the passed container component
+    expect(bones[0].props.keyboardShouldPersistTaps).toBe('always');
+    expect(instance.toJSON()).toMatchSnapshot();
   });
 });

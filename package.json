@@ -53,12 +53,10 @@
     "url": "https://github.com/alexZajac/react-native-skeleton-content-nonexpo/issues"
   },
   "homepage": "https://github.com/alexZajac/react-native-skeleton-content-nonexpo#readme",
-  "dependencies": {
-    "react-native-redash": "^16.0.11"
-  },
+  "dependencies": {},
   "peerDependencies": {
-    "react-native-linear-gradient": "^2.5.1",
-    "react-native-reanimated": "^2.1.0"
+    "react-native-linear-gradient": "^2.8.3",
+    "react-native-reanimated": "^3.4.2"
   },
   "devDependencies": {
     "@babel/preset-typescript": "^7.10.1",
@@ -76,10 +74,10 @@
     "react": "^16.10.2",
     "react-native": "^0.62.3",
     "react-native-gesture-handler": "^1.7.0",
-    "react-native-linear-gradient": "^2.5.6",
-    "react-native-reanimated": "^2.1.0",
+    "react-native-linear-gradient": "^2.8.3",
+    "react-native-reanimated": "^3.4.2",
     "react-test-renderer": "^16.13.1",
-    "typescript": "^3.7.2"
+    "typescript": "^5.2.2"
   },
   "author": "Alexandre Zajac",
   "license": "MIT"
